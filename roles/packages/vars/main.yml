@@ -1,0 +1,6 @@
+---
+# vars file for packages
+- { name1: openjdk-8jdk, state: present, update: yes  }
+- { name1: maven, state: present }
+- { name: git, state: present}
+- { url: "https://pkg.jenkins.io/debian-stable/jenkins.io.key", state1: present, repo: "deb https://pkg.jenkins.io/debian-stable binary/" , name: jenkins}
