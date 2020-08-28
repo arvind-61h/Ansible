@@ -3,7 +3,7 @@
 - name: installing jdk, maven, git,
   apt:
     name: "{{name1}}"
-    state: "{{state}}"
+    state: "{{state1}}"
     update_cache: "{{update}}"
 - name: adding jenkins.io.key
   apt_key:
