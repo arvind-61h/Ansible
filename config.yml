@@ -1,6 +1,7 @@
 ---
 - name: installing jdk, maven, git, jenkins
   hosts: dev
+  become_method: sudo 
   tasks:
     - name: installing java
       apt:
@@ -17,19 +18,20 @@
         url: "{{item}}"
         state: present
       loop:
-        - https://pkg.jenkins.io/debian-stable/jenkins.io.keyi
+        - https://pkg.jenkins.io/debian-stable/jenkins.io.key
 
     - name: adding package into sources.list
       apt_repository:
         repo: "{{item}}"
         state: present
       loop:
-        - deb https://pkg.jenkins.io/debian-stable binary
+        - 'deb https://pkg.jenkins.io/debian-stable binary/'
 
     - name: install jenkins
       apt:
-        name: "{{item.d}}"
+        name: "{{item}}"
         state: present
+        update_cache: yes
       loop:
         - jenkins
 ...
