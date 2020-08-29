@@ -4,32 +4,32 @@
   tasks:
     - name: installing java
       apt:
-        name: "{{item.a}}"
-        state: "{{item.b}}"
-        update_cache: "{{item.c}}"
+        name: "{{item}}"
+        state: present
+        update_cache: yes
       loop:
-        - { a: openjdk-8-jdk, b: present, c: yes }
-        - { a: maven, b: present }
-        - { a: git, b: present }
+        - openjdk-8-jdk
+        - maven
+        - git
 
     - name: adding jenkins.io.key
       apt_key:
-        url: "{{item.url}}"
-        state: "{{item.state1}}"
+        url: "{{item}}"
+        state: present
       loop:
-        - { url: "https://pkg.jenkins.io/debian-stable/jenkins.io.keyi", state1: present }
+        - https://pkg.jenkins.io/debian-stable/jenkins.io.keyi
 
     - name: adding package into sources.list
       apt_repository:
-        repo: "{{repo}}"
-        state: "{{state2}}"
+        repo: "{{item}}"
+        state: present
       loop:
-        - { repo: "deb https://pkg.jenkins.io/debian-stable binary", state2: present }
+        - deb https://pkg.jenkins.io/debian-stable binary
 
     - name: install jenkins
       apt:
         name: "{{item.d}}"
-        state: "{{item.e}}"
+        state: present
       loop:
-        - { d: jenkins, e: present }
+        - jenkins
 ...
