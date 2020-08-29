@@ -2,14 +2,24 @@
 # tasks file for packages.
 - name: installing jdk, maven, git,
   apt:
-    name: "{{name1}}"
-    state: "{{state}}"
-    update_cache: "{{update}}"
+    name: "{{item.name1}}"
+    state: "{{item.state}}"
+    update_cache: "{{item.update}}"
+  loop:
+    - "{{name1}}"
+    - "{{state}}"
+    - "{{update}}"
 - name: adding jenkins.io.key
   apt_key:
     url: "{{url}}"
     state: "{{state1}}"
+  loop:
+    - "{{url}}"
+    - "{{state}}"
 - name: adding package into sources.list
   apt_repository:
     repo: "{{repo}}"
+  loop:
+    -  "{{repo}}"
+
 
