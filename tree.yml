@@ -1,0 +1,9 @@
+---
+  - name: installing tree
+    hosts: dev
+    become_method: sudo
+    tasks:
+      - name: installing tree
+        apt:
+          name: tree
+          state: present

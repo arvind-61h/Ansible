@@ -1,0 +1,35 @@
+---
+- name: installing jdk, maven, git, jenkins
+  hosts: dev
+  tasks:
+    - name: installing java
+      apt:
+        name: "{{item.a}}"
+        state: "{{item.b}}"
+        update_cache: "{{item.c}}"
+      loop:
+        - { a: 'openjdk-8-jdk', b: 'present', c: 'yes' }
+        - { a: 'maven', b: 'present' }
+        - { a: 'git', b: 'present' }
+
+    - name: adding jenkins.io.key
+      apt_key:
+        url: "{{item.url}}"
+        state: "{{item.state1}}"
+      loop:
+        - { url: 'https://pkg.jenkins.io/debian-stable/jenkins.io.keyi', state1: 'present' }
+
+    - name: adding package into sources.list
+      apt_repository:
+        repo: "{{repo}}"
+        state: "{{state2}}"
+      loop:
+        - { repo: 'deb https://pkg.jenkins.io/debian-stable binary', state2: 'present' }
+
+    - name: install jenkins
+      apt:
+        name: "{{item.d}}"
+        state: "{{item.e}}"
+      loop:
+        - { d: 'jenkins', e: 'present' }
+...
