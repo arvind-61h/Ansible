@@ -17,14 +17,14 @@
         url: "{{item.url}}"
         state: "{{item.state1}}"
       loop:
-        - { url: https://pkg.jenkins.io/debian-stable/jenkins.io.keyi, state1: present }
+        - { url: "https://pkg.jenkins.io/debian-stable/jenkins.io.keyi", state1: present }
 
     - name: adding package into sources.list
       apt_repository:
         repo: "{{repo}}"
         state: "{{state2}}"
       loop:
-        - { repo: deb https://pkg.jenkins.io/debian-stable binary, state2: present }
+        - { repo: "deb https://pkg.jenkins.io/debian-stable binary", state2: present }
 
     - name: install jenkins
       apt:
