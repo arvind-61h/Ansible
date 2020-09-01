@@ -1,0 +1,6 @@
+---
+  - name: installing pakage
+    hosts: dev
+    become_method: sudo
+    roles:
+       - packages
