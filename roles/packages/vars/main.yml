@@ -1,7 +1,7 @@
 ---
 # vars file for packages
-loop:
- - "{{ name1: openjdk-8jdk, state1: present, update: yes  }}"
- - "{} name1: maven, state1: present }}"
- - "{{ name1: git, state1: present}}"
- - "{{ url: 'https://pkg.jenkins.io/debian-stable/jenkins.io.key', state1: present, repo: 'deb https://pkg.jenkins.io/debian-stable binary/' , name1: jenkins }}"
+#loop:
+# - "{{ name1: openjdk-8jdk, state1: present, update: yes  }}"
+# - "{} name1: maven, state1: present }}"
+# - "{{ name1: git, state1: present}}"
+# - "{{ url: 'https://pkg.jenkins.io/debian-stable/jenkins.io.key', state1: present, repo: 'deb https://pkg.jenkins.io/debian-stable binary/' , name1: jenkins }}"

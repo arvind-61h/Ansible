@@ -6,7 +6,6 @@ block: sonarqube - nofile - 65536
 pkg1: unzip
 pkg2: openjdk-11-jdk
 cmd: java -version
-version=check
 
 # postgreSql configuration.
 

@@ -2,14 +2,29 @@
 # tasks file for packages.
 - name: installing jdk, maven, git,
   apt:
-    name: "{{name1}}"
-    state: "{{state1}}"
-    update_cache: "{{update}}"
+    name: "{{item.name1}}"
+    state: "{{item.state}}"
+    update_cache: "{{item.update}}"
+  with_items:
+    - "{{name1: openjdk-8-jdk', 'state: present', 'update: yes'}}"
+
 - name: adding jenkins.io.key
   apt_key:
     url: "{{url}}"
     state: "{{state1}}"
+  with_items:
+    - "{{'url: https://pkg.jenkins.io/debian-stable/jenkins.io.key', 'state1: present' }}"
+
 - name: adding package into sources.list
   apt_repository:
     repo: "{{repo}}"
+    state: "{{state2}}"
+  with_items:
+    -  "{{'repo: deb https://pkg.jenkins.io/debian-stable binary/', 'state2: present'}}"
 
+- name: install jenkins
+  apt:
+    name: "{{item.a}}"
+    state: "{{item.b}}"
+  with_items:
+    - "{{'a: jenkins', 'b: present'}}"
