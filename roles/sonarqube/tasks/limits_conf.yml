@@ -4,7 +4,7 @@
     path: "{{path}}"
     block: "{{item.block}}"
   loop:
-    - "{{block1}}"
-    - "{{block2}}"
+    - {block: "{{block1}}"}
+    - {block: "{{block2}}"}
 
 ...
