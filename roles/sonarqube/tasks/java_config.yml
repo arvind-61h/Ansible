@@ -5,8 +5,8 @@
     state: present
     update_cache: yes
   with_items:
-    - pkg1
-    - pkg2
+    - "{pkg1}"
+    - "{pkg2}"
 - name: java version
   command: "{{cmd}}"
   register: version
