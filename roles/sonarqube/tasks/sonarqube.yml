@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 #Download and Install SonarQube
 - name: Download and unzip SonarQube
@@ -22,32 +21,3 @@
     group: "{{group_name}}"
     mode: "{{mode}}"
 ...
-
-
-=======
----
-#Download and Install SonarQube
-- name: Download and unzip SonarQube
-  unarchive:
-    src: "{{src}}"
-    dest: "{{dest}}"
-    remote_src: yes
-- name: creating group
-  group:
-    name: "{{group_name}}"
-    state: present
-- name: creating user for sonarqube server
-  user:
-    name: "{{user2}}"
-    comment: "{{comnt}}"
-    group: "{{group_name}}"
-- name: directory access for user sonar
-  file:
-    path: "{{dest}}"
-    owner: "{user2}}"
-    group: "{{group_name}}"
-    mode: "{{mode}}"
-...
-
-
->>>>>>> 8c5a1f817b1154a55eb0244bedab3e42b6d26856
