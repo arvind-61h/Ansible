@@ -13,6 +13,5 @@
   update_cache: yes
   loop:
     - "{{pkg3}}"
-    - "{{pkg4}}"
 
 ...
