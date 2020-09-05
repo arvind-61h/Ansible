@@ -1,9 +1,9 @@
 ---
 - name: installing unzip and jdk11
   apt:
-    name: "{{ pkg }}"
+    name: "{{ item.pkg }}"
     state: present
-  with_items:
+  loop:
     - {pkg: "{{pkg1}}"}
     - {pkg: "{{pkg2}}"}
 
