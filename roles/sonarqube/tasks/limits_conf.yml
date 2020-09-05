@@ -4,8 +4,8 @@
     path: "{{path}}"
     block: "{{item.block}}"
   with_items:
-    - block1
-    - block2
+    - "{{block1}}"
+    - "{{block2}}"
   loop_control:
     loop_var: item_block
 ...
