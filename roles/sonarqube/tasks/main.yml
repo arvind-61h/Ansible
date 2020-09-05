@@ -1,7 +1,5 @@
 ---
-<<<<<<< HEAD
-# tasks file for sonarqube
-=======
+
 # tasks file for sonarqube
 - name: configuring sonarqube server
   include: "{{item}}"
@@ -15,4 +13,3 @@
     - sonar_conf.yml
     - startsonarqube_service.yml
 ...
->>>>>>> 8c5a1f817b1154a55eb0244bedab3e42b6d26856
