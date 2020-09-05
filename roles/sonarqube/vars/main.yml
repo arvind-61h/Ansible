@@ -1,8 +1,8 @@
 ---
 # vars file for sonarqube
 path: /etc/security/limits.conf
-block: sonarqube - nofile - 65536
-       sonarqube - nproc - 4096
+block1: sonarqube - nofile - 65536
+block2: sonarqube - nproc - 4096
 pkg1: unzip
 pkg2: openjdk-11-jdk
 cmd: java -version
