@@ -3,7 +3,7 @@
 # tasks file for sonarqube
 - name: configuring sonarqube server
   include: "{{item}}"
-  loop:
+  loop_var:
     - limits_conf.yml
     - java_config.yml
     - postgress.yml
