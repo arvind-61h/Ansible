@@ -3,9 +3,8 @@
   blockinfile:
     path: "{{path}}"
     block: "{{item.block}}"
-  with_items:
+  loop:
     - "{{block1}}"
     - "{{block2}}"
-  loop_control:
-    loop_var: item_block
+
 ...

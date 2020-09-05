@@ -2,7 +2,7 @@
 
 # tasks file for sonarqube
 - name: configuring sonarqube server
-  include: "{{item}}"
+  include: "{{outer_item}}"
   with_items:
     - limits_conf.yml
     - java_config.yml
@@ -12,4 +12,6 @@
     - sonarqube.yml
     - sonar_conf.yml
     - startsonarqube_service.yml
+  loop_control:
+    loop_var: outer_item
 ...
