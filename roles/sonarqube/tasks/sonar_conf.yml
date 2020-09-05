@@ -1,0 +1,15 @@
+---
+# configure sonar.properties and sonar.sh
+- name: adding user and password for sonarserver
+  replace:
+    path: "{{item.dest}}"
+    regexp: "{{item.find}}"
+    replace: "{{item.replace}}"
+  loop:
+    - {dest: "{{path1}}"}
+    - {dest: "{{path2}}"}
+    - {find: "{{user}}", replace: "{{add_user}}"}
+    - {find: "{{default_passwd}}", replace: "{{add_passwd}}"}
+    - {find: "{{RUN_AS_USER}}", replace: "{{rpl}}"}
+
+
