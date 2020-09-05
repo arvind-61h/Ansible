@@ -2,8 +2,8 @@
 - name: vm.max_map_count kernal ,file discriptor and ulimit permanently
   blockinfile:
     path: "{{path}}"
-    block: "{{block}}"
-  loop:
-    - {block: "{{block1}}"}
-    - {block: "{{block2}}"}
+    block: "{{item}}"
+  with_items:
+    - block1
+    - block2
 ...
