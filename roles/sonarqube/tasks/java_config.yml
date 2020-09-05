@@ -4,9 +4,9 @@
     name: "{{item.name}}"
     state: present
 # update_cache: yes
-  with_items:
-    - {name: "{{pkg1}}"}
-    - {name: "{{pkg2}}"}
+  with_list:
+    - pkg1
+    - pkg2
 - name: java version
   command: "{{cmd}}"
   register: version
