@@ -9,12 +9,16 @@ cmd: java -version
 
 # postgreSql configuration.
 
-repo: " deb http://apt.postgresql.org/pub/repos/apt/dists/bionic-pgdg/11/binary-arm64/Packages.gz "
+repo: "deb http://apt.postgresql.org/pub/repos/apt '{{lsb_release -cs}}' -pgdg main"
 apt_key: https://www.postgresql.org/media/keys/ACCC4CF8.asc
 pkg3: postgresql
-pkg4: postgresql-contrib
+pkg4: postgresql-contrib'a
+:q
+
 service1: postgresql
-service_status: started
+service_status: started::q
+:q!
+
 username: postgres
 pass: "postgres"
 
