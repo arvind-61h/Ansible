@@ -1,8 +1,9 @@
 ---
 # Install and Setup PostgreSQL 10 Database For SonarQube
 - name: adding PostgreSQL Repo
-  repo: "{{repo}}"
-  state: present
+  apt_repository:
+    repo: "{{repo}}"
+    state: present
 - name: adding apt sign key
   apt_key:
     url: "{{apt_key}}"

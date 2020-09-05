@@ -1,30 +1,30 @@
 # database configuration, creating user for db, creating db
-- name: switching user
+- block:
+    - name: creating user
+      user:
+        name: "{{user2}}"
+        comment: "{{comment}}"
+    - name: connecting to db and update password for db user
+      postgresql_user:
+        db: "{{db}}"
+        name: "{{user2}}"
+        password: "{{passwd}}"
+    - name: creating db
+      postgresql_user:
+        name: "{{dbname}}"
+    - name: GRANT ALL PRIVILEGES ON DATABASE
+      postgresql_privs:
+        db: "{{dbname}}"
+        privs: "{{permission}}"
+        type: "{{typ}}"
+        role: "{{user2}}"
+    - name: Exit from the psql shell
+      command: "{{item}}"
+      loop:
+        - \q
+        - exit
   become: yes
   become_user: "{{user1}}"
-- name: creating user
-  user:
-    name: "{{user2}}"
-    comment: "{{comment}}"
-- name: connecting to db and update password for db user
-  postgresql_user:
-    db: "{{db}}"
-    name: "{{user2}}"
-    password: "{{passwd}}"
-- name: creating db
-  postgresql_user:
-    name: "{{dbname}}"
-- name: GRANT ALL PRIVILEGES ON DATABASE
-  postgresql_privs:
-    db: "{{dbname}}"
-    privs: "{{permission}}"
-    type: "{{typ}}"
-    role: "{{user2}}"
-- name: Exit from the psql shell
-  command: "{{item}}"
-  loop:
-    - \q
-    - exit
 ...
 
 
