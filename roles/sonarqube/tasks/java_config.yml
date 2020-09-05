@@ -7,8 +7,8 @@
   with_items:
   loop_control:
     loop_var:
-      - pkg1
-      - pkg2
+      - "{{pkg1}}"
+      - "{{pkg2}}"
 - name: java version
   command: "{{cmd}}"
   register: version
