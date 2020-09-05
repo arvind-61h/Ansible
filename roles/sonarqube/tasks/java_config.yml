@@ -4,8 +4,8 @@
     name: "{{ item_pkg}}"
     state: present
   loop:
-    - pkg1
-    - pkg2
+    - {pkg: "{{pkg1}}"}
+    - {pkg: "{{pkg2}}"}
 
 - name: java version
   command: "{{cmd}}"
