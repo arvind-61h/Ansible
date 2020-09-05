@@ -13,12 +13,10 @@ repo: "deb http://apt.postgresql.org/pub/repos/apt '{{lsb_release -cs}}' -pgdg m
 apt_key: https://www.postgresql.org/media/keys/ACCC4CF8.asc
 pkg3: postgresql
 pkg4: postgresql-contrib'a
-:q
+
 
 service1: postgresql
-service_status: started::q
-:q!
-
+service_status: started
 username: postgres
 pass: "postgres"
 
@@ -52,4 +50,4 @@ rpl: "RUN_AS_USER=sonar"
 
 #starting sonarqube service
 script: sonar.sh start
-script_path: /opt/sonarqube/bin/linux-x86-64/
+script_path: /opt/sonarqube/bin/linux-x86-64/:q
