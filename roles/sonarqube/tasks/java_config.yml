@@ -1,12 +1,12 @@
 ---
 - name: installing unzip and jdk11
   apt:
-    name: "{{item}}"
+    name: "{{my_item}}"
     state: present
-# update_cache: yes
   with_items:
     - "{{pkg1}}"
     - "{{pkg2}}"
+  loop_control: my_item
 - name: java version
   command: "{{cmd}}"
   register: version
