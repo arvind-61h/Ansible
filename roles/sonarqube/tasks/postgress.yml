@@ -15,7 +15,7 @@
     - "{{pkg3}}"
 
 - name: version of postgress
-  command: postgres --version
+  command: psql --version
   register: b
 
 - name: version of postgresql
