@@ -18,7 +18,7 @@
         name: "{{user2}}"
         password: "{{passwd}}"
       become: true
-      become_user: "{{username}}"
+      sudo_user: "{{username}}"
     - name: creating db
       postgresql_user:
         name: "{{dbname}}"
