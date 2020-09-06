@@ -5,6 +5,10 @@
       user:
         name: "{{user2}}"
         comment: "{{comment}}"
+    - name: installing python3-psycopg2
+      apt:
+        name: python3-psycopg2
+        state: present
     - name: connecting to db and update password for db user
       postgresql_user:
         db: "{{db}}"
