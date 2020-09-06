@@ -13,5 +13,12 @@
   update_cache: yes
   loop:
     - "{{pkg3}}"
+- name: version of postgress
+  cmd: postgres --version
+  register: b
+
+- name: version of postgresql
+  debug:
+    var: b
 
 ...
