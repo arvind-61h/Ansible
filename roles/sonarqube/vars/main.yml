@@ -28,6 +28,7 @@ passwd: "sonar"
 dbname: sonarqube
 permission: ALL
 typ: database
+su: postgres
 
 # sonarqube conf
 src: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.4.zip"
