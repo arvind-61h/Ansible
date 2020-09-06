@@ -1,5 +1,4 @@
 # database configuration, creating user for db, creating db
-- block:
     - name: creating user
       become: true
       user:
@@ -18,6 +17,8 @@
         db: "{{db}}"
         name: "{{user2}}"
         password: "{{passwd}}"
+      become: true
+      become_user: "{{username}}"
     - name: creating db
       postgresql_user:
         name: "{{dbname}}"
