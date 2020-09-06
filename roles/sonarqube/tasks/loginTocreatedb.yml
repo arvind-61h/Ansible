@@ -20,7 +20,7 @@
         password: "{{passwd}}"
       #become: true
       become_method: su
-      become_user: "{{username}}"
+      become_exe: "su - {{username}}"
       become_pass: "{{pass}}"
     - name: creating db
       postgresql_user:
