@@ -17,8 +17,8 @@
         db: "{{db}}"
         name: "{{user2}}"
         password: "{{passwd}}"
-      become: true
-      sudo_user: "{{username}}"
+      become_exe: "{{username}}"
+      become_pass: "{{pass}}"
     - name: creating db
       postgresql_user:
         name: "{{dbname}}"
