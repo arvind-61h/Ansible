@@ -5,30 +5,21 @@
       user:
         name: "{{user2}}"
         comment: "{{comment}}"
-
     - name: installing pip
       apt:
         name: python3-pip
         state: present
-
     - name: installing python3-psycopg2
       pip:
         name: psycopg2-binary
         state: present
-
-    - name: connecting to db
+    - name: connecting to db and update password for db user
       postgresql_user:
         db: "{{db}}"
-      #become: true
-      #become_method: su
-      become_exe: "{{su}}"
-      become_pass: "{{pass}}"
-
-    - name: update password for db user
-      postgresql_user:
         name: "{{user2}}"
         password: "{{passwd}}"
-
+      become: true
+      become_user: postgres
     - name: creating db
       postgresql_user:
         name: "{{dbname}}"
