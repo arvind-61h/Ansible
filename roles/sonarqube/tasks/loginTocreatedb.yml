@@ -18,9 +18,9 @@
         db: "{{db}}"
         name: "{{user2}}"
         password: "{{passwd}}"
-      become: true
+      #become: true
       become_method: su
-      remote_user: "{{username}}"
+      become_user: "{{username}}"
       become_pass: "{{pass}}"
     - name: creating db
       postgresql_user:
