@@ -23,7 +23,7 @@
       loop:
         - \q
         - exit
-  become: yes
+  become_method: sudo
   become_user: "{{user1}}"
 ...
 
