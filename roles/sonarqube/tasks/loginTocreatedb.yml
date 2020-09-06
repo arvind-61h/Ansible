@@ -7,7 +7,7 @@
         comment: "{{comment}}"
     - name: installing pip
       apt:
-        name: pip3
+        name: python3-pip
         state: present
     - name: installing python3-psycopg2
       pip:
