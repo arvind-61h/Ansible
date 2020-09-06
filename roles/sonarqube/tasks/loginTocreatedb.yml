@@ -1,7 +1,6 @@
 ---
 # database configuration, creating user for db, creating db 
- - name: configure database users and database
-   become: true
+-  become: true
    become_user: postgres
    tasks:
     - name: creating user
