@@ -1,8 +1,7 @@
 ---
 # database configuration, creating user for db, creating db 
--  become: true
-   become_user: postgres
-   tasks:
+-  block:
+   
     - name: creating user
       become: true
       user:
@@ -35,6 +34,9 @@
       loop:
         - \q
         - exit
+   become: true
+   become_user: postgres     
+  
 ...
 
 
