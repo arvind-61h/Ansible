@@ -18,7 +18,9 @@
         db: "{{db}}"
         name: "{{user2}}"
         password: "{{passwd}}"
-
+      become: true
+      become_method: su
+      become_user: "{{username}}"
     - name: creating db
       postgresql_user:
         name: "{{dbname}}"
@@ -33,9 +35,7 @@
       loop:
         - \q
         - exit
-  become: true
-  become_method: su
-  become_user: "{{username}}"
+
 ...
 
 
