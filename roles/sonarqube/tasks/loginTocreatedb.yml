@@ -1,6 +1,7 @@
 # database configuration, creating user for db, creating db
 - block:
     - name: creating user
+      become: true
       user:
         name: "{{user2}}"
         comment: "{{comment}}"
@@ -23,8 +24,6 @@
       loop:
         - \q
         - exit
-  become: true
-  become_user: "{{user1}}"
 ...
 
 
