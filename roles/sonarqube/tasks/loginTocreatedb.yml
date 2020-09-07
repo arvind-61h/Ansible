@@ -21,7 +21,7 @@
         replace: "local  all      all          md5"
       notify: restart postgres
     - name: shwitch user
-        become_method: sudo
+        become: yes
         become_exe: su
         become_user: postgres
     - name: connecting to db and update password for db user
