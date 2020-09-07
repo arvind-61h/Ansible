@@ -13,16 +13,15 @@
       pip:
         name: psycopg2-binary
         state: present
+    - name: switching user
+      command: psql
+      become: yes
+      become_user: postgres
     - name: connecting to db and update password for db user
       postgresql_user:
         db: "{{db}}"
         name: "{{user2}}"
         password: "{{passwd}}"
-      become: true
-      become_exe: su
-      become_user: postgres
-      user_password: postgres
-      become_flags: ""
     - name: creating db
       postgresql_user:
         name: "{{dbname}}"
