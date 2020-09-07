@@ -15,8 +15,8 @@
         state: present
     - name: shwitch user
       command: psql
-        become: yes
-        become_user: postgres
+      become: yes
+      become_user: postgres
     - name: conf pg_hba.con
       replace:
         path: /etc/postgresql/10/main/pg_hba.conf
