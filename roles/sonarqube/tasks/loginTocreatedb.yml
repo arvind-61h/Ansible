@@ -35,8 +35,10 @@
         - \q
         - exit
    become: true
+   become_exe: su
    become_user: postgres
    user_password: postgres
+   become_flags: ""
   
 ...
 
