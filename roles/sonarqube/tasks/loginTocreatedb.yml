@@ -13,9 +13,11 @@
       pip:
         name: psycopg2-binary
         state: present
-#    - name: switching user
-#      command: psql
-
+    - name: conf pg_hba.con
+      replace:
+        path: /etc/postgresql/10/main/pg_hba.conf
+        regexp: "local  all      all          peer"
+        replace: "local  all      all          md5"
     - name: connecting to db and update password for db user
       postgresql_user:
         db: "{{db}}"
