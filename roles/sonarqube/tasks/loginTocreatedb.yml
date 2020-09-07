@@ -21,16 +21,15 @@
         replace: "local  all      all          md5"
       notify: restart postgres
     - name: shwitch user
+        command: psql
         become: yes
-        become_exe: su
         become_user: postgres
     - name: connecting to db and update password for db user
       postgresql_user:
-        db: "{{db}}"
+        #db: "{{db}}"
         name: "{{user2}}"
         password: "{{passwd}}"
-      become: yes
-      become_user: postgres
+
     - name: creating db
       postgresql_user:
         name: "{{dbname}}"
