@@ -11,8 +11,11 @@
         state: present
     - name: installing python3-psycopg2
       apt:
-        name: python-psycopg2
-        state: present
+        name: "{{item}}"
+        state: latest
+      with_items:
+        - python3-psycopg2
+        - postgresql-contrib
 
     - name: conf pg_hba.con
       replace:
