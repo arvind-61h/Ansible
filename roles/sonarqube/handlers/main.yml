@@ -5,4 +5,8 @@
     state: started
     name: sonar
     enabled: yes
+- name: restrating postgres
+  service:
+    name: postgresql
+    status: restarted
 ...
