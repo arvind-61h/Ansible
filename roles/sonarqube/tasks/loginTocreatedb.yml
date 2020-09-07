@@ -11,8 +11,8 @@
         state: present
     - name: installing python3-psycopg2
       pip:
-        name: psycopg2-binary
-        state: absent
+        name: python3-psycopg2
+        state: present
 
     - name: conf pg_hba.con
       replace:
