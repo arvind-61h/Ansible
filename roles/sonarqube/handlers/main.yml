@@ -1,0 +1,12 @@
+---
+# handlers file for sonarqube
+- name: start sonar
+  systemd:
+    state: started
+    name: sonar
+    enabled: yes
+- name: restrating postgres
+  service:
+    name: postgresql
+    status: restarted
+...

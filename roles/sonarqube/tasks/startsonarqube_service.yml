@@ -1,0 +1,17 @@
+---
+# starting sonarqube
+- block:
+    - name: starting service
+      shell: "{{script}}"
+      args:
+        chdir: "{{script_path}}"
+    - name: Configure Systemd service
+      copy:
+        src: sonar.service
+        dest: /etc/systemd/system/
+        owner: sonar
+        group: sonar
+        mode: 557
+      notify: start sonar
+  become: yes
+  become_user: "{{user2}}"

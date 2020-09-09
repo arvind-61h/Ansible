@@ -1,0 +1,16 @@
+---
+- name: Start PostgreSQL Database server
+  service:
+    name: "{{service1}}"
+    state: "{{service_status}}"
+
+- name: enable postgresql
+  service:
+    name: "{{service1}}"
+    enabled: yes
+- name: Change the password for the default PostgreSQL user
+  user:
+    name: "{{username}}"
+    password: "{{pass}}"
+  become: yes
+...

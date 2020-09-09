@@ -1,0 +1,16 @@
+---
+- name: installing unzip and jdk11
+  apt:
+    name: "{{ item.pkg }}"
+    state: present
+  loop:
+    - {pkg: "{{pkg1}}"}
+    - {pkg: "{{pkg2}}"}
+
+- name: java version
+  command: "{{cmd}}"
+  register: version
+- name: check javaversion
+  debug:
+    var: version
+...

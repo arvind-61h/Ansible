@@ -1,0 +1,17 @@
+---
+
+# tasks file for sonarqube
+- name: configuring sonarqube server
+  include: "{{outer_item}}"
+  with_items:
+    - limits_conf.yml
+    - java_config.yml
+    - postgress.yml
+    - startpsql.yml
+    - loginTocreatedb.yml
+    - sonarqube.yml
+    - sonar_conf.yml
+    - startsonarqube_service.yml
+  loop_control:
+    loop_var: outer_item
+...
