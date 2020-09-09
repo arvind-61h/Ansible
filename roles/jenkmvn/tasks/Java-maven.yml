@@ -1,11 +1,11 @@
 ---
-- name: installing java and Maven
-  apt:
-    name: "{{item.pkg}}"
-    state: present
-  update_cache: yes
-  with_items:
-    - {pkg: "{{pkg1}}"}
-    - {pkg: "{{pkg2}}"}
-  notify: version
+ - name: installing java and Maven
+   apt:
+     name: "{{item.pkg}}"
+     state: present
+   update_cache: yes
+   loop:
+     - { pkg: "{{pkg1}}" }
+     - { pkg: "{{pkg2}}" }
+   notify: version
 ...

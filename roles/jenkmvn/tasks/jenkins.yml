@@ -1,14 +1,16 @@
 ---
-- name: jenkins.io.key
-  apt_key:
-    url: "{{jenkins_apt_key_url}}"
-    state: present
-- name: adding jenkins repo
-  apt_repository:
-    repo: "{{jenkins_repo}}"
-    state: present
-- name: jenkins installation
-  apt:
-    name: "{{pkg3}}"
-    state: present
-  update_cache: yes
+ - name: jenkins.io.key
+   apt_key:
+     url: "{{jenkins_apt_key_url}}"
+     state: present
+
+ - name: adding jenkins repo
+   apt_repository:
+     repo: "{{jenkins_repo}}"
+     state: present
+
+ - name: installing jenkins
+   apt:
+     name: "{{pkg3}}"
+     state: present
+   update_cache: yes
