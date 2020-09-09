@@ -4,8 +4,8 @@
   command: "{{version}}"
   register: versions
   with_items:
-    - "{{java_version}}"
-    - "{{maven_version}}"
+    - {version: "{{java_version}}"}
+    - {version: "{{maven_version}}"}
 - name: priniting version
   debug:
     var: versions
