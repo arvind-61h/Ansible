@@ -1,2 +1,11 @@
 ---
 # handlers file for jenkmvn
+- name: version
+  command: "{{version}}"
+  register: versions
+  with_items:
+    - "{{java_version}}"
+    - "{{maven_version}}"
+- name: priniting version
+  debug:
+    var: versions

@@ -1,2 +1,12 @@
 ---
-# vars file for jenkmvn
+# configure java and maven
+
+package1: default-jdk
+package2: maven
+java_version: java -version
+maven_version: mvn -version
+
+# jenkins configuration
+jenkins_apt_key_ur: 'https://pkg.jenkins.io/debian-stable/jenkins.io.key'
+jenkins_repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
+package3: jenkins

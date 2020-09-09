@@ -1,0 +1,6 @@
+---
+- name: installing required package for dev envi
+  hosts: dev
+  become: yes
+  roles:
+    - jenkmvn

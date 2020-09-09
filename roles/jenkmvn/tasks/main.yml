@@ -1,2 +1,6 @@
 ---
 # tasks file for jenkmvn
+- name: installing java, maven, jenkins
+  include:
+    - Java-maven.yml
+    - jenkins.yml
