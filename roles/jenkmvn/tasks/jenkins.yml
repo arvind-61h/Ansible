@@ -8,9 +8,9 @@
    apt_repository:
      repo: "{{jenkins_repo}}"
      state: present
-- name: updating cache
-  apt:
-    update_cache: yes
+ - name: updating cache
+   apt:
+     update_cache: yes
 
  - name: installing jenkins
    apt:
