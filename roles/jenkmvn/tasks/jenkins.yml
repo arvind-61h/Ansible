@@ -9,6 +9,6 @@
     state: present
 - name: jenkins installation
   apt:
-   name: "{{pkg3}}"
-   state: present
+    name: "{{pkg3}}"
+    state: present
   update_cache: yes
