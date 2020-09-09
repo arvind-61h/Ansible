@@ -1,7 +1,7 @@
 ---
  - name: installing java and Maven
    apt:
-     name: "{{item.pkg}}"
+     name: "{{pkg}}"
      state: present
    update_cache: yes
    loop:

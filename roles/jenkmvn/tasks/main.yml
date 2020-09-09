@@ -3,5 +3,5 @@
 - name: installing java, maven, jenkins
   include: "{{item}}"
   with_items:
-    - Java-maven.yml
+    - Java_maven.yml
     - jenkins.yml
