@@ -1,10 +1,11 @@
 ---
 - name: installing java and Maven
-  apt: "{{package}}"
+  apt:
+   name: "{{pkg}}"
    state: present
   update_cache: yes
   with_items:
-    - "{{package1}}"
-    - "{{package2}}"
+    - "{{pkg1}}"
+    - "{{pkg2}}"
   notify: version
 ...
