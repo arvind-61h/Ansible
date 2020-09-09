@@ -3,9 +3,9 @@
    apt:
      name: "{{pkg}}"
      state: present
-   update_cache: yes
+#   update_cache: yes
    loop:
-     - { pkg: "{{pkg1}}" }
-     - { pkg: "{{pkg2}}" }
+     - pkg1
+     - pkg2
    notify: version
 ...
