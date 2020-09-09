@@ -7,7 +7,6 @@
   apt_repository:
     repo: "{{jenkins_repo}}"
     state: present
-
 - name: jenkins installation
   apt:
    name: "{{pkg3}}"
