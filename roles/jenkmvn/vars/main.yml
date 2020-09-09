@@ -9,4 +9,4 @@ maven_version: mvn -version
 # jenkins configuration
 apt_key: 'https://pkg.jenkins.io/debian-stable/jenkins.io.key'
 jenkins_repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
-pkg3: jenkins
+pkg3: "jenkins"
