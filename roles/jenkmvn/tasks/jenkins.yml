@@ -1,7 +1,7 @@
 ---
  - name: jenkins.io.key
    apt_key:
-     url: "{{jenkins_apt_key_url}}"
+     url: "{{apt_key}}"
      state: present
 
  - name: adding jenkins repo
