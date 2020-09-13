@@ -1,0 +1,6 @@
+---
+- name: Increase the vm.max_map_count kernal
+  copy:
+    src: "{{src}}"
+    dest: "{{path}}"
+    remote_src: yes

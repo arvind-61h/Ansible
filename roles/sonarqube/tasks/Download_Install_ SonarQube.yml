@@ -1,0 +1,6 @@
+---
+- name: download binaries.sonarsource.com and uzip
+  unarchive:
+    src1: "{{sonar_url}}"
+    dest: "{{des}}"
+    remote_src: yes

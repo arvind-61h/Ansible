@@ -1,0 +1,24 @@
+---
+- name: adding user to sonar.proprties
+  replace:
+    path: "{{item_path}}"
+    regexp: "{{item_find}}"
+    replace: "{{item_replace}}"
+  with_items:
+    - {path: "{{path1}}", find: "{{find_text}}", replace: "{{replace_text}}"}
+    - {path: "{{path2}}", find: "{{find_text1}}", replace: "{{replace_text1}}"}
+
+- name: switch user to sonar and run sonar.sh
+  become: yes
+  sudo_user: sonar
+  shell: "{{item.script}}"
+    args:
+      chdir: "{{dir}}"
+  with_items:
+    - {script: "{{script1}}"}
+    - {script: "{{script2}}"}
+  register: output
+- name: status of sonar service
+  debug:
+    var: output
+

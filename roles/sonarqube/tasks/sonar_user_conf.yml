@@ -1,0 +1,17 @@
+---
+- name: adding soar group
+  group:
+    name: "{{group_name}}"
+    state: present
+- name: adduser for sonarqube
+  user:
+    name: "{{sonarqube_user}}"
+    comment: "{{comment}}"
+    group: "{{group_name}}"
+
+- name: Change file ownership, group and permissions
+  file:
+    path: "{{des}}"
+    owner: "{{sonarqube_user}}"
+    group: "{{group_name}}"
+    recurse: yes

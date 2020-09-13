@@ -1,0 +1,10 @@
+---
+- name: adding sonar.service file to systemd
+  become: yes
+  sudo_user: sonar
+  copy:
+    src: sonar.service
+    dest:  /etc/systemd/system/sonar.service
+    owner: sonar
+    group: sonar
+  notify: restart and enable sonar service

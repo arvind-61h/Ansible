@@ -1,0 +1,17 @@
+---
+# handlers file for sonarqube
+- name: java version
+  shell: "{{cmd}}"
+  register: "{{register_var}}"
+- name: print java version
+  debug:
+    var: "{{register_var}}"
+- name: start and enable postgres
+  systemd:
+    name: "{{service_1}}"
+    state: restarted
+    enabled: yes
+- name: restart and enable sonar service
+  systemd:
+    state: restarted
+    enabled: yes
