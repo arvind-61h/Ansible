@@ -16,7 +16,7 @@
   shell: "{{item.script}}"
     args:
       chdir: "{{dir}}"
-  with_items:
+    with_items:
     - {script: "{{script1}}"}
     - {script: "{{script2}}"}
   register: output
