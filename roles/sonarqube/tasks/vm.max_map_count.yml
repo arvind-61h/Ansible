@@ -3,4 +3,3 @@
   copy:
     src: "{{src}}"
     dest: "{{path}}"
-    remote_src: yes
