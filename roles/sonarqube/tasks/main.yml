@@ -1,9 +1,6 @@
 ---
 # tasks file for sonarqube
-- name: configure sonar-server
-  hosts: sonar
-  become: yes
-  tasks:
+- include:
    - vm.max_map_count.yml
    - openjdk.yml
    - add_postgres_repo.yml
