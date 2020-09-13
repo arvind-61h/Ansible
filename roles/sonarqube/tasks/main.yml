@@ -1,6 +1,8 @@
 ---
 # tasks file for sonarqube
-- include:
+- name: including multiple conf files
+  include: "{{items}}"
+  with_items:
    - vm.max_map_count.yml
    - openjdk.yml
    - add_postgres_repo.yml
