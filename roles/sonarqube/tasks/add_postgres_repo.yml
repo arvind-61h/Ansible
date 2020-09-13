@@ -1,4 +1,7 @@
 ---
+- name: update local repo
+  apt:
+    update_cache: yes
 - name: downloading postgres repo
   apt_repository:
     repo: "{{postgres_repo}}"
