@@ -26,5 +26,6 @@
         type: database
         role: "{{db_user}}"
   become: yes
-  sudo_user: "{{user_name}}"
+  become_method: su
+  become_user: "{{user_name}}"
 ...
