@@ -4,6 +4,8 @@
   hosts: sonar
   become: yes
   roles:
+    include: "{{item}}"
+  with_items:
     - vm.max_map_count.yml
     - openjdk.yml
     - add_postgres_repo.yml
