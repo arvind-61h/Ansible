@@ -8,9 +8,6 @@
 #        #become: yes
 #        #become_user: "{{user_name}}"
 - block:
-  become: yes
-  sudo_user: "{{user_name}}"
-
     - name: creating user for database
       postgresql_user:
         db: "{{db1}}"
@@ -28,4 +25,6 @@
         privs: ALL
         type: database
         role: "{{db_user}}"
+  become: yes
+  sudo_user: "{{user_name}}"
 ...
