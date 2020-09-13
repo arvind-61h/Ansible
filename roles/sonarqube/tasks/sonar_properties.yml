@@ -1,5 +1,8 @@
 ---
 - name: adding user to sonar.proprties
+  become: yes
+  become_method: su
+  become_user: "{{sonarqube_user}"
   replace:
     path: "{{item_path}}"
     regexp: "{{item_find}}"
@@ -10,9 +13,6 @@
 
 
 - name: switch user to sonar and run sonar.sh
-  become: yes
-  become_method: su
-  become_user: "{{sonarqube_user}"
   shell: "{{item.script}}"
     args:
       chdir: "{{dir}}"
