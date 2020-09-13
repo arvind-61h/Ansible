@@ -45,7 +45,7 @@ replace_text:
 path2: /opt/sonarqube/bin/linux-x86-64/sonar.sh
 find_text1: "#RUN_AS_USER"
 replace_text1: RUN_AS_USER=sonar
-script1: ./sonar.sh start
+script: ./sonar.sh start
 script2: ./sonar.sh status
 dir: /opt/sonarqube/bin/linux-x86-64/
 

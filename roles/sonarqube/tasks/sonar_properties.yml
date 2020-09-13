@@ -13,12 +13,9 @@
 
 
 - name: switch user to sonar and run sonar.sh
-  shell: "{{item.script}}"
+  shell: "{{script}}"
   args:
-      chdir: "{{dir}}"
-  with_items:
-    - {script: "{{script1}}"}
-    - {script: "{{script2}}"}
+    chdir: "{{dir}}"
   register: output
 - name: status of sonar service
   debug:
