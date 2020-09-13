@@ -1,18 +1,18 @@
 ---
 - name: adding user to sonar.proprties
-  become: yes
-  become_method: su
-  become_user: "{{sonarqube_user}"
-    replace:
-      path: "{{item_path}}"
-      regexp: "{{item_find}}"
-      replace: "{{item_replace}}"
-    with_items:
-      - {path: "{{path1}}", find: "{{find_text}}", replace: "{{replace_text}}"}
-      - {path: "{{path2}}", find: "{{find_text1}}", replace: "{{replace_text1}}"}
+  replace:
+    path: "{{item_path}}"
+    regexp: "{{item_find}}"
+    replace: "{{item_replace}}"
+  with_items:
+    - {path: "{{path1}}", find: "{{find_text}}", replace: "{{replace_text}}"}
+    - {path: "{{path2}}", find: "{{find_text1}}", replace: "{{replace_text1}}"}
 
 
 - name: switch user to sonar and run sonar.sh
+  become: yes
+  become_method: su
+  become_user: "{{sonarqube_user}"
   shell: "{{item.script}}"
     args:
       chdir: "{{dir}}"
