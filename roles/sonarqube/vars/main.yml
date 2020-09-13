@@ -1,6 +1,6 @@
 ---
 # copy limit.conf file to remote
-src: ansible/roles/sonarqube/files/limits.conf
+src: limits.conf
 path: /etc/security/limits.conf
 
 # java configuration and zip
