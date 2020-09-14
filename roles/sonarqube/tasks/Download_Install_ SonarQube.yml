@@ -1,5 +1,10 @@
 ---
 - name: download binaries.sonarsource.com and uzip
-  unarchive:
-    src: "{{sonar_url}}"
+  get_url:
+    url: "{{sonar_url}}"
     dest: "{{des}}"
+- name: unarchive the sonarqube-7.9.1.zip
+  unarchive:
+    src: sonarqube-7.9.1.zip
+    dest: "{{des1}}"
+    remote_src: yes
