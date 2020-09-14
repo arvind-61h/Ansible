@@ -6,10 +6,8 @@
         regexp: "{{item_find}}"
         replace: "{{item_replace}}"
       with_items:
-      loop_control:
-        loop_var:
-          - {path: "{{path1}}", find: "{{find_text}}", replace: "{{replace_text}}"}
-          - {path: "{{path2}}", find: "{{find_text1}}", replace: "{{replace_text1}}"}
+        - {path: "{{path1}}", find: "{{find_text}}", replace: "{{replace_text}}"}
+        - {path: "{{path2}}", find: "{{find_text1}}", replace: "{{replace_text1}}"}
 
 
     - name: switch user to sonar and run sonar.sh
