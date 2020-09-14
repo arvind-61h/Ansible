@@ -1,16 +1,16 @@
 ---
-   - name: ensure the password for the default PostgreSQL user is changed
-     user:
+    - name: ensure the password for the default PostgreSQL user is changed
+      user:
         name: "{{user_name}}"
         update_password: always
         password: "{{ password | password_hash('sha512')}}"
 
+- become: yes
+  become_user: postgres
    - name: creating user for database
-     become: yes
-     become_user: postgres
      postgresql_user:
         name: "{{db_user}}"
-        password: "{{db_user}}"
+        password: "{{ password1 | password_hash('sha512')}}"
 
    - name: creating db
      postgresql_db:
