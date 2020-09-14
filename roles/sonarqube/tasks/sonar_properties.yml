@@ -5,7 +5,7 @@
         path: "{{line_path}}"
         regexp: "{{line_find}}"
         replace: "{{line_replace}}"
-      #with_items: "{{line_list}}"
+      with_items: "{{line_list}}"
       loop_control:
         loop_var:
         - {path: "{{path1}}", find: "{{find_text}}", replace: "{{replace_text}}"}
