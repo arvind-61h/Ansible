@@ -5,7 +5,7 @@
         dest: "{{path}}"
         regexp: "{{find}}"
         replace: "{{replace}}"
-      loops:
+      with_items:
         - {path: "{{path1}}", find: "{{text1}}", replace: "{{replace1}}"}
         - {path: "{{path2}}", find: "{{text2}}", replace: "{{replace2}}"}
 
