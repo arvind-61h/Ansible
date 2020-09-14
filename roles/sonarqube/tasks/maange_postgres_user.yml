@@ -4,9 +4,8 @@
         name: "{{user_name}}"
         update_password: always
         password: "{{ password | password_hash('sha512')}}"
-        become: yes
-        become_user: "{{user_name}}"
 
+- pre-tasks:
    - name: creating user for database
      #become: yes
      #become_user: "{{user_name}}"
@@ -26,7 +25,7 @@
         privs: ALL
         type: database
         role: "{{db_user}}"
-#  become: yes
-#  become_method: su
-#  become_user: "{{user_name}}"
+  become: yes
+  become_method: su
+  become_user: "{{user_name}}"
 ...
