@@ -15,7 +15,7 @@
       name: "{{db2}}"
       owner: "{{db_user}}"
 
-  - name: grant priv to "{{}}"
+  - name: grant priv to dbuser
     postgresql_privs:
       database: "{{db2}}"
       privs: ALL
