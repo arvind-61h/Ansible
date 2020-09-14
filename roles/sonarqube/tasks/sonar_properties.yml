@@ -1,10 +1,10 @@
 ---
 - block:
-    - name: adding user to sonar.proprties
+    - name: adding user to sonar-proprties
       replace:
-        dest: "{{item_path}}"
-        regexp: "{{item_find}}"
-        replace: "{{item_replace}}"
+        dest: "{{path}}"
+        regexp: "{{find}}"
+        replace: "{{replace}}"
       with_items:
         - {path: "{{path1}}", find: "{{find_text}}", replace: "{{replace_text}}"}
         - {path: "{{path2}}", find: "{{find_text1}}", replace: "{{replace_text1}}"}
