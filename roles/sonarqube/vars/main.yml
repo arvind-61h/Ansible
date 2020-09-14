@@ -24,7 +24,7 @@ postgres_packages:
 notify_1: start and enable postgres
 service_1: postgresql
 user_name: postgres
-file: postgres_pass.yml
+password: postgres_pass.yml
 db1: psql
 db_user: sonar
 db2: sonarqube

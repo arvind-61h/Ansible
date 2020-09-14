@@ -1,6 +1,4 @@
 ---
-   - name: include variale
-     include_vars: "{{file}}"
    - name: ensure the password for the default PostgreSQL user is changed
      user:
         name: "{{user_name}}"
