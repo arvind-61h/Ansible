@@ -14,5 +14,6 @@
     path: "{{des1}}"
     owner: "{{sonarqube_user}}"
     group: "{{group_name}}"
+    mode: 757
     recurse: yes
     state: directory
