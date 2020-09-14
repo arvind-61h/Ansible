@@ -4,7 +4,7 @@
         name: "{{user_name}}"
         update_password: always
         password: "{{ password | password_hash('sha512')}}"
-     login_user:
+        login_user:
 
    - name: creating user for database
      #become: yes
