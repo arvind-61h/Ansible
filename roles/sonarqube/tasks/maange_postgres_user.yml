@@ -1,28 +1,28 @@
 ---
-   - name: ensure the password for the default PostgreSQL user is changed
-     user:
-        name: "{{user_name}}"
-        update_password: always
-        password: "{{ password | password_hash('sha512')}}"
+- name: ensure the password for the default PostgreSQL user is changed
+  user:
+    name: "{{user_name}}"
+    update_password: always
+    password: "{{ password | password_hash('sha512')}}"
+- block:
+  - name: creating user for database
+    postgresql_user:
+      name: "{{db_user}}"
+      password: "{{ password1 | password_hash('sha512')}}"
 
+  - name: creating db
+    postgresql_db:
+      name: "{{db2}}"
+      owner: "{{db_user}}"
 
-   - name: creating user for database
-     postgresql_user:
-        name: "{{db_user}}"
-        password: "{{ password1 | password_hash('sha512')}}"
+  - name: grant priv to "{{}}"
+    postgresql_privs:
+      database: "{{db2}}"
+      privs: ALL
+      type: database
+      role: "{{db_user}}"
+  become: yes
+  become_user: postgres
 
-   - name: creating db
-     postgresql_db:
-        name: "{{db2}}"
-        owner: "{{db_user}}"
-
-   - name: grant priv to "{{}}"
-     postgresql_privs:
-        database: "{{db2}}"
-        privs: ALL
-        type: database
-        role: "{{db_user}}"
-   become: yes
-   become_user: postgres
 
 ...
