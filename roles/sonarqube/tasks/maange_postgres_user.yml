@@ -5,7 +5,7 @@
         update_password: always
         password: "{{ password | password_hash('sha512')}}"
 
-- pre-tasks:
+- block:
    - name: creating user for database
      #become: yes
      #become_user: "{{user_name}}"
