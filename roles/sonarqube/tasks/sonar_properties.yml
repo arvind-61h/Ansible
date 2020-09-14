@@ -2,9 +2,9 @@
 - block:
     - name: adding user to sonar.proprties
       replace:
-        dest: "{{line_path}}"
-        regexp: "{{line_find}}"
-        replace: "{{line_replace}}"
+        dest: "{{item_path}}"
+        regexp: "{{item_find}}"
+        replace: "{{item_replace}}"
       #with_items:
       loop_control:
         loop_var:
