@@ -5,6 +5,6 @@
     dest: "{{des}}"
 - name: unarchive the sonarqube-7.9.1.zip
   unarchive:
-    src: sonarqube-7.9.1.zip
+    src: /op/sonarqube-7.9.1.zip
     dest: "{{des1}}"
     remote_src: yes
