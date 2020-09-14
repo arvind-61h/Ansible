@@ -5,7 +5,7 @@
         dest: "{{item_path}}"
         regexp: "{{item_find}}"
         replace: "{{item_replace}}"
-      #with_items:
+      with_items:
       loop_control:
         loop_var:
           - {path: "{{path1}}", find: "{{find_text}}", replace: "{{replace_text}}"}
