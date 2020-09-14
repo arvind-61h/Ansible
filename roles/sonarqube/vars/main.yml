@@ -18,7 +18,7 @@ Key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
 postgres_packages:
   - postgresql
   - postgresql-contrib
-postgresql_python_library: psycopg2
+postgresql_python_library: python2-psycopg2
 
 # manage postgres service
 notify_1: start and enable postgres
