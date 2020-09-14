@@ -3,4 +3,3 @@
   unarchive:
     src1: "{{sonar_url}}"
     dest: "{{des}}"
-    remote_src: yes
