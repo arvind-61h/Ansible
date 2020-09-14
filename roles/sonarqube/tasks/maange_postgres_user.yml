@@ -4,12 +4,12 @@
         name: "{{user_name}}"
         update_password: always
         password: "{{ password | password_hash('sha512')}}"
-        #become: yes
-        #become_user: "{{user_name}}"
+        become: yes
+        become_user: "{{user_name}}"
 
    - name: creating user for database
-     become: yes
-     become_user: "{{user_name}}"
+     #become: yes
+     #become_user: "{{user_name}}"
      postgresql_user:
         db: "{{db1}}"
         name: "{{db_user}}"
