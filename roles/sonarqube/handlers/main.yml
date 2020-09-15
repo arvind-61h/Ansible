@@ -13,6 +13,7 @@
     enabled: yes
 - name: restart and enable sonar service
   systemd:
+    daemon_reload: yes
     name: sonar
-    state: restarted
+    state: reloaded
     enabled: yes
