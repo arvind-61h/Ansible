@@ -22,7 +22,10 @@
         line: "{{replace2}}"
 
     - name: switch user to sonar and run sonar.sh
-      shell: "{{script}}"
+      shell: "{{item_script}}"
+      with_items:
+        - script1
+        - script2
       args:
         chdir: "{{dir}}"
       register: output
