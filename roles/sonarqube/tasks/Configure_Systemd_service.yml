@@ -7,4 +7,7 @@
     owner: sonar
     group: sonar
     mode: 0777
+- name: reoload systemd
+  systemd:
+    daemon_reload: yes
   notify: restart and enable sonar service
