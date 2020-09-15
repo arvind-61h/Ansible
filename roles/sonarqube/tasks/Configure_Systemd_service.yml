@@ -1,8 +1,7 @@
 ---
 - name: adding sonar.service file to systemd
   become: yes
-  become_method: su
-  become_user: "{{sonarqube_user}"
+  become_user: "{{sonarqube_user}}"
   copy:
     src: sonar.service
     dest:  /etc/systemd/system/sonar.service
