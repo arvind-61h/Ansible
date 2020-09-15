@@ -30,5 +30,4 @@
       debug:
         var: output
   become: yes
-  become_method: sudo
   become_user: "{{sonarqube_user}}"
