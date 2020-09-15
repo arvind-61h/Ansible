@@ -33,7 +33,7 @@ db2: sonarqube
 # sonarqube configuration
 sonar_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.1.zip"
 des: /opt/sonarqube-7.9.1.zip
-des1: /opt/sonarqube-7.9.1
+des1: /opt/
 group_name: sonar
 sonarqube_user: sonar
 comment: user to run SonarQube
