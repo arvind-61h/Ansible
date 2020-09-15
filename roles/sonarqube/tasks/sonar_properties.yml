@@ -23,9 +23,9 @@
 
     - name: switch user to sonar and run sonar.sh
       shell: "{{item_script}}"
-      with_items:
-        - script1
-        - script2
+      loop:
+        - {script: "{{script1}}"}
+        - {script: "{{script2}}"}
       args:
         chdir: "{{dir}}"
       register: output
