@@ -1,20 +1,25 @@
 ---
-- name: adding soar group
-  group:
-    name: "{{group_name}}"
-    state: present
-- name: adduser for sonarqube
-  user:
-    name: "{{sonarqube_user}}"
-    comment: "{{comment}}"
-    group: "{{group_name}}"
-    home: /opt/sonarqube-7.9.1
+- vars_files:
+    - my-vault.ym
 
-- name: Change file ownership, group and permissions
-  file:
-    path: "{{des1}}"
-    owner: "{{sonarqube_user}}"
-    group: "{{group_name}}"
-    mode: 0757
-    recurse: yes
-    state: directory
+    - name: adding soar group
+      group:
+        name: "{{group_name}}"
+        state: present
+    - name: adduser for sonarqube
+      user:
+        name: "{{sonarqube_user}}"
+        comment: "{{comment}}"
+        group: "{{group_name}}"
+        home: /opt/sonarqube-7.9.1
+        update_password: on_create
+        password: "{{sonarqube_password | password_hash ('sha512')}}"
+
+    - name: Change file ownership, group and permissions
+      file:
+        path: "{{des1}}"
+        owner: "{{sonarqube_user}}"
+        group: "{{group_name}}"
+        mode: 0757
+        recurse: yes
+        state: directory

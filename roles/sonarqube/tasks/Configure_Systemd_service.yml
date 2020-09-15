@@ -6,4 +6,5 @@
     dest:  /etc/systemd/system/sonar.service
     owner: sonar
     group: sonar
+    mode: 0777
   notify: restart and enable sonar service

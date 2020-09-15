@@ -24,8 +24,6 @@ postgresql_python_library: psycopg2-binary
 notify_1: start and enable postgres
 service_1: postgresql
 user_name: postgres
-password: postgres_pass.yml
-password1: postgres_pass.yml
 db1: psql
 db_user: sonar
 db2: sonarqube
