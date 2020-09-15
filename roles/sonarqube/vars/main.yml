@@ -51,7 +51,7 @@ replace2: RUN_AS_USER=sonar
 script:
   - sonar.sh start
   - sonar.sh status
-dir: /opt/sonarqube/bin/linux-x86-64/
+dir: sonarqube/bin/linux-x86-64/
 
 
 
