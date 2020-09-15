@@ -25,6 +25,9 @@
       shell: "{{script}}"
       args:
         chdir: "{{dir}}"
+      loops:
+        - {script: "{{script1}}"}
+        - {script: "{{script2}}"}
       register: output
     - name: status of sonar service
       debug:
