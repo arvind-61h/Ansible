@@ -25,6 +25,7 @@
       shell: "{{script}}"
       args:
         chdir: "{{dir}}"
+        creates: sonarlog.txt
       register: output
     - name: status of sonar service
       debug:
