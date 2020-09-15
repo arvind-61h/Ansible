@@ -32,3 +32,5 @@
   become: yes
   become_method: su
   become_user: "{{sonarqube_user}}"
+  prompt_l10n:
+
