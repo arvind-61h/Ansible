@@ -30,7 +30,6 @@
       debug:
         var: output
   become: yes
-  become_method: su
+  become_method: sudo su -
   become_user: "{{sonarqube_user}}"
-  prompt_l10n:
 
