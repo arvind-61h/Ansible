@@ -30,6 +30,5 @@
       debug:
         var: output
   become: yes
-  become_exe: su
+  become_method: su
   become_user: "{{sonarqube_user}}"
-  become_pass: "{{ password1 | password_hash('sha512')}}"
