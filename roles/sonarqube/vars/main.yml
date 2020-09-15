@@ -49,8 +49,8 @@ find2: "^RUN_AS_USER="
 insert: "^#RUN_AS_USER="
 replace2: RUN_AS_USER=sonar
 script:
-  - ./sonar.sh start
-  - ./sonar.sh status
+  - sonar.sh start
+  - sonar.sh status
 dir: /opt/sonarqube-7.9.1/bin/linux-x86-64/
 
 
