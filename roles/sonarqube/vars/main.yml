@@ -23,6 +23,8 @@ postgresql_python_library: psycopg2-binary
 # manage postgres service
 notify_1: start and enable postgres
 service_1: postgresql
+dbhost_password: my-vault.yml
+sonarqube_password: my-vault.yml
 user_name: postgres
 db1: psql
 db_user: sonar
