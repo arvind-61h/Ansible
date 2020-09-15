@@ -1,5 +1,5 @@
 ---
-- block:
+
  #   - name: adding user to sonar-proprties
  #     replace:
  #       dest: "{{path}}"
@@ -8,7 +8,7 @@
  #     with_items:
  #       - {path: "{{path1}}", find: "{{find1}}", replace: "{{replace1}}"}
  #       - {path: "{{path2}}", find: "{{find2}}", replace: "{{replace2}}"}
-
+- block:
     - name: inserting sonar user and password for sonarqube
       blockinfile:
         path: "{{path1}}"
