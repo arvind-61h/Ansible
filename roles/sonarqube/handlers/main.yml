@@ -11,8 +11,5 @@
     name: "{{service_1}}"
     state: restarted
     enabled: yes
-- name: start and enable sonar service
-  systemd:
-    name: sonar
-    state: started
-    enabled: yes
+
+
