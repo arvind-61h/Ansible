@@ -8,7 +8,7 @@
    - add_postgres_repo.yml
    - install_postgres.yml
    - maange_postgres_user.yml
-   - Download_Install_ SonarQube.yml
    - sonar_user_conf.yml
+   - Download_Install_ SonarQube.yml
    - sonar_properties.yml
    - Configure_Systemd_service.yml

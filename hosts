@@ -1,6 +1,3 @@
 [dev]
 jenkins
-sonar
-test
-
-[test]
+sonarServer
