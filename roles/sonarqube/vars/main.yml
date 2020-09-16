@@ -25,9 +25,9 @@ notify_1: start and enable postgres
 service_1: postgresql
 postgres_user: my-vault.yml
 postgres_password: my-vault.yml
-db_user: my-vault.yml
-db_user_pass: my-vault.yml
-db2: my-vault.yml
+db_user: sonar
+db_user_pass: sonar
+db2: sonarqube
 
 # sonarqube configuration
 sonar_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.1.zip"
