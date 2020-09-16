@@ -9,6 +9,6 @@
     name: "{{sonarqube_user}}"
     comment: "{{comment}}"
     group: "{{group_name}}"
-    createhome: yes
-    password: "{{sonarqube_password | password_hash ('sha512')}}"
+    createhome: /home/sonar/
+    password: "{{sonarqube_password}}"
 
