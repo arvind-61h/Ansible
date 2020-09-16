@@ -2,6 +2,7 @@
 - name: ensure the password for the {{postgres_user}} user is changed
   user:
     name: "{{postgres_user}}"
+    update_password: always
     password: "{{ postgres_password | password_hash('sha512')}}"
 - block:
   - name: creating user for database
@@ -21,8 +22,8 @@
       privs: ALL
       type: database
       role: "{{db_user}}"
-  become: yes
-  become_user: "{{postgres_user}}"
+  become: true
+  become_user: postgres
 
 
 ...
