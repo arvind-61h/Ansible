@@ -33,6 +33,7 @@ db2: sonarqube
 sonar_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.1.zip"
 des: /home/sonar/sonarqube-7.9.1.zip
 des1: /home/sonar/
+des2: /home/sonar/sonarqube-7.9.1/
 group_name: sonar
 sonarqube_user: sonar
 sonarqube_password: my-vault.yml

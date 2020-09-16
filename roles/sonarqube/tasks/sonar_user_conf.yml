@@ -12,11 +12,3 @@
     createhome: yes
     password: "{{sonarqube_password | password_hash ('sha512')}}"
 
-#- name: Change file ownership, group and permissions
-#  file:
-#    path: "{{des1}}"
-#    owner: "{{sonarqube_user}}"
-#    group: "{{group_name}}"
-#    mode: 0757
-#    recurse: yes
-#    state: directory

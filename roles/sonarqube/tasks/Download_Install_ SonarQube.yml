@@ -8,3 +8,11 @@
     src: "{{des}}"
     dest: "{{des1}}"
     remote_src: yes
+- name: Change file ownership, group and permissions
+  file:
+    path: "{{des2}}"
+    owner: "{{sonarqube_user}}"
+    group: "{{group_name}}"
+    mode: 0757
+    recurse: yes
+    state: directory
