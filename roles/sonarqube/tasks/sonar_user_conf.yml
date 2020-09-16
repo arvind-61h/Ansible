@@ -4,7 +4,7 @@
   group:
     name: "{{group_name}}"
     state: present
-- name: adduser for sonarqube
+- name: adding {{sonarqube_user}} for sonarqube
   user:
     name: "{{sonarqube_user}}"
     comment: "{{comment}}"

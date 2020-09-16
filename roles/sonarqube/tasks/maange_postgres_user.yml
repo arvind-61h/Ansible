@@ -2,7 +2,6 @@
 - name: ensure the password for the {{postgres_user}} user is changed
   user:
     name: "{{postgres_user}}"
-    update_password: always
     password: "{{ postgres_password | password_hash('sha512')}}"
 - block:
   - name: creating user for database
