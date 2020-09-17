@@ -1,14 +1,14 @@
 ---
 
-- name: adding {{ group_name }} group
-  group:
-    name: "{{group_name}}"
-    state: present
-- name: adding {{sonarqube_user}} for sonarqube
-  user:
-    name: "{{sonarqube_user}}"
-    comment: "{{comment}}"
-    group: "{{group_name}}"
-    home: /home/sonar/
-    password: "{{sonarqube_password}}"
+#- name: adding {{ group_name }} group
+#  group:
+#    name: "{{group_name}}"
+#    state: present
+#- name: adding {{sonarqube_user}} for sonarqube
+#  user:
+#    name: "{{sonarqube_user}}"
+#    comment: "{{comment}}"
+#    group: "{{group_name}}"
+#    home: /home/sonar/
+#    password: "{{sonarqube_password}}"
 

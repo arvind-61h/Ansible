@@ -31,26 +31,26 @@ db2: sonarqube
 
 # sonarqube configuration
 sonar_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.1.zip"
-des: /home/sonar/sonarqube-7.9.1.zip
-des1: /home/sonar/
-des2: /home/sonar/sonarqube-7.9.1/
-group_name: sonar
-sonarqube_user: sonar
+des: /home/jenkins/sonarqube-7.9.1.zip
+des1: /home/jenkins/
+des2: /home/jenkins/sonarqube-7.9.1/
+group_name: jenkins
+sonarqube_user: jenkins
 sonarqube_password: $6$KILQQ9Xt/F6cxXs$gtkLO4xaBErPgP8KZh9MZXgpzD9QcwATTl/zwiQlzXdBOSbHd8UbZWnLTw6PjiEHTq60fEpxgOHz79ZFF4RzI1
 comment: user to run SonarQube
-path1: /home/sonar/sonarqube-7.9.1/conf/sonar.properties
+path1: /home/jenkins/sonarqube-7.9.1/conf/sonar.properties
 #find1:
 #  - "#sonar.jdbc.username=, #sonar.jdbc.password="
 block: |
   sonar.jdbc.username=sonar
   sonar.jdbc.password=sonar
 
-path2: /home/sonar/sonarqube-7.9.1/bin/linux-x86-64/sonar.sh
+path2: /home/jenkins/sonarqube-7.9.1/bin/linux-x86-64/sonar.sh
 find2: "^RUN_AS_USER="
 insert: "^#RUN_AS_USER="
 replace2: RUN_AS_USER=sonar
 script: ./sonar.sh start >> sonarlog.txt
-dir: /home/sonar/sonarqube-7.9.1/bin/linux-x86-64/
+dir: /home/jenkins/sonarqube-7.9.1/bin/linux-x86-64/
 
 
 
