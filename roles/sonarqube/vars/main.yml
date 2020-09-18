@@ -12,6 +12,7 @@ notify1: java version
 cmd: java -version
 register_var: version
 
+
 # postgres configuration
 postgres_repo: "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main"
 Key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"

@@ -2,10 +2,10 @@
 # handlers file for sonarqube
 - name: java version
   shell: "{{cmd}}"
-  register: "{{register_var}}"
+  register: version
 - name: print java version
   debug:
-    var: "{{register_var}}"
+    var: version
 - name: start and enable postgres
   systemd:
     name: "{{service_1}}"
