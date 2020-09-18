@@ -1,6 +1,6 @@
 ---
  - name: configuring sonarqube-server
-   hosts: sonars
+   hosts: sonar
    become: yes
    roles:
       - sonarqube
