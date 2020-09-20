@@ -4,7 +4,7 @@ pipeline{
         stage('Artifacts-Server-Config'){
             steps{
 
-                sh label: '', script: 'ansible-playbook artifacts_Server_conf.yml -b --check'
+                sh label: '', script: 'ansible-playbook artifacts_Server_conf.yml -b '
             }
         }
     }
