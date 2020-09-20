@@ -3,7 +3,10 @@
   apt:
     name: "{{package_name}}"
     state: present
-  update_cache: yes
+
+- name: update cache
+  apt:
+    update_cache: yes
 
 - name: java version
   command: "{{version}}"
