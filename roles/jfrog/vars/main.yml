@@ -1,6 +1,6 @@
 ---
 # Java configuration
-package_name: openjdk-11jdk
+package_name: openjdk-11-jdk
 version: java -version
 #allocation limit to handle files
 path: /etc/security/limits.conf
