@@ -1,0 +1,10 @@
+pipeline{
+    agent { label 'ansible'}
+    stages{
+        stage('SCM-Checkout'){
+            steps{
+                sh label: '', script: 'ansible arti -m ping'
+            }
+        }
+    }
+}
