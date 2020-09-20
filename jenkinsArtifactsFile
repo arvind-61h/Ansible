@@ -3,6 +3,8 @@ pipeline{
     stages{
         stage('SCM-Checkout'){
             steps{
+
+                sh label: '', script: 'ansible sonar -m ping'
                 sh label: '', script: 'ansible arti -m ping'
             }
         }
