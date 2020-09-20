@@ -15,4 +15,13 @@
     state: present
     update_cache: yes
   notify: start and enable artifactory
+- name: start and enable artifactory
+  service:
+    name: "{{service_name}}"
+    state: started
+    enabled: yes
+  register: status
+- name: status of artifactory
+    debug:
+      var: status
 

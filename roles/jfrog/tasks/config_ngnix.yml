@@ -36,4 +36,7 @@
   debug:
     var: status
   notify: restart nginx
-
+- name: restart nginx
+  service:
+    name: "{{service_name1}}"
+    state: restarted

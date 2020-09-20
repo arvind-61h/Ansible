@@ -1,17 +1,6 @@
 ---
 # handlers file for jfrog
-- name: start and enable artifactory
-  service:
-    name: "{{service_name}}"
-    state: started
-    enabled: yes
-  register: status
 
-- name: status of {service_name}
-  debug:
-    var: status
 
-- name: restart nginx
-  service:
-    name: "{{service_name1}}"
-    state: restarted
+-
+
