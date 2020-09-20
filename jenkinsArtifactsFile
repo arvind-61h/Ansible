@@ -1,11 +1,10 @@
 pipeline{
     agent { label 'ansible'}
     stages{
-        stage('SCM-Checkout'){
+        stage('Artifacts-Server-Config'){
             steps{
 
-                sh label: '', script: 'ansible sonar -m ping'
-                sh label: '', script: 'ansible arti -m ping'
+                sh label: '', script: 'ansible-playbook artifacts_Server_conf.yml -b --check'
             }
         }
     }
