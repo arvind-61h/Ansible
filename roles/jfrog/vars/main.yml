@@ -23,6 +23,6 @@ destination: /etc/nginx/sites-available/
 owner: jenkins
 group: jenkins
 source1: /etc/nginx/sites-available/jfrog.conf
-destination1: /etc/nginx/sites-enabled/
+destination1: /etc/nginx/sites-enabled/default
 command: nginx -t >> syntax.log
 service_name1: nginx

@@ -25,6 +25,7 @@
     dest: "{{destination1}}"
     state: link
 
+
 - name: verify the Nginx for any syntax error. will run only if syntax.log file does not exist
   shell: "{{command}}"
   args:
