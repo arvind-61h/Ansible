@@ -1,0 +1,28 @@
+---
+# Java configuration
+package_name: openjdk-11jdk
+version: java -version
+#allocation limit to handle files
+path: /etc/security/limits.conf
+block: |
+  root hard nofile 100000
+  root soft nofile 100000
+  xray hard nofile 100000
+  xray soft nofile 100000
+  postgres hard nofile 100000
+  postgres soft nofile 100000
+#Artifacts configuration
+url: 'https://api.bintray.com/orgs/jfrog/keys/gpg/public.key'
+repo_url: "deb https://jfrog.bintray.com/artifactory-debs bionic main"
+package_name1: jfrog-artifactory-oss
+service_name: artifactory
+
+# Configure Nginx as a Reverse Proxy
+package_name2: nginx
+destination: /etc/nginx/sites-available/
+owner: jenkins
+group: jenkins
+source1: /etc/nginx/sites-available/jfrog.conf
+destination1: /etc/nginx/sites-enabled/
+command: nginx -t >> syntax.log
+service_name1: nginx

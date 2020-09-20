@@ -1,0 +1,17 @@
+---
+- name: download and add the GPG key
+  apt_key:
+    url: "{{url}}"
+    state: present
+
+- name: add the JFrog Artifactory repository
+  apt_repository:
+    repo: "{{repo_url}}"
+    state: present
+
+- name: update cache
+  apt:
+    name: "{{package_name1}}"
+    state: present
+    update_cache: yes
+  notify: start and enable artifactory

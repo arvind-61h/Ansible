@@ -1,0 +1,213 @@
+# Next, download and add the GPG key with the following command:
+
+    wget -qO - https://api.bintray.com/orgs/jfrog/keys/gpg/public.key | apt-key add -
+
+# Next, add the JFrog Artifactory repository with the following command
+
+    echo "deb https://jfrog.bintray.com/artifactory-debs bionic main" | tee /etc/apt/sources.list.d/jfrog.list
+
+# Once the repository is added, update the repository and install JFrog Artifactory with the following command:
+
+    apt-get update -y
+    apt-get install jfrog-artifactory-oss -y
+
+# Once the installation has been completed successfully, you should get the following output:
+
+        ************ SUCCESS ****************
+    The Installation of Artifactory has completed successfully.
+    
+    NOTE: It is highly recommended to use Artifactory with an external database (MySQL, Oracle, Microsoft SQL Server, PostgreSQL, MariaDB).
+          For details about how to configure the database, refer to https://service.jfrog.org/installer/Configuring+the+Database
+    
+    Start Artifactory with:
+    > systemctl start artifactory.service
+    
+    Check Artifactory status with:
+    > systemctl status artifactory.service
+    
+    
+    Installation directory was set to /opt/jfrog/artifactory
+    You can find more information in the log directory /opt/jfrog/artifactory/var/log
+    System configuration templates can be found under /opt/jfrog/artifactory/var/etc
+    Copy any configuration you want to modify from the template to /opt/jfrog/artifactory/var/etc/system.yaml
+    
+    Triggering migration script, this will migrate if needed ...
+    Processing triggers for man-db (2.9.1-1) ...
+    Processing triggers for systemd (245.4-4ubuntu3) ...
+
+# Next, start the Artifactory service and enable it to start at system reboot with the following command:
+
+    systemctl start artifactory
+    systemctl enable artifactory
+
+# Next, verify the status of Artifactory service using the following command:
+
+    systemctl status artifactory
+
+# You should get the following output:
+
+    ? artifactory.service - Artifactory service
+     Loaded: loaded (/lib/systemd/system/artifactory.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2020-06-07 12:42:39 UTC; 40s ago
+    Process: 15671 ExecStart=/opt/jfrog/artifactory/app/bin/artifactoryManage.sh start (code=exited, status=0/SUCCESS)
+   Main PID: 17974 (java)
+      Tasks: 0 (limit: 9522)
+     Memory: 2.4M
+     CGroup: /system.slice/artifactory.service
+             ? 17974 /opt/jfrog/artifactory/app/third-party/java/bin/java -Djava.util.logging.config.file=/opt/jfrog/artifactory/app/artifacto>
+
+    Jun 07 12:42:38 ubuntu2004 su[18380]: (to artifactory) root on none
+    Jun 07 12:42:38 ubuntu2004 su[18380]: pam_unix(su:session): session opened for user artifactory by (uid=0)
+    Jun 07 12:42:38 ubuntu2004 su[18380]: pam_unix(su:session): session closed for user artifactory
+    Jun 07 12:42:38 ubuntu2004 su[18534]: (to artifactory) root on none
+    Jun 07 12:42:38 ubuntu2004 su[18534]: pam_unix(su:session): session opened for user artifactory by (uid=0)
+    Jun 07 12:42:39 ubuntu2004 su[18534]: pam_unix(su:session): session closed for user artifactory
+    Jun 07 12:42:39 ubuntu2004 su[18655]: (to artifactory) root on none
+    Jun 07 12:42:39 ubuntu2004 su[18655]: pam_unix(su:session): session opened for user artifactory by (uid=0)
+    Jun 07 12:42:39 ubuntu2004 su[18655]: pam_unix(su:session): session closed for user artifactory
+    Jun 07 12:42:39 ubuntu2004 systemd[1]: Started Artifactory service. 
+
+* At this point, Artifactory is installed and listening on port 8082. You can now proceed to the next step.*
+   
+# Configure Nginx as a Reverse Proxy
+
+   # Next, you will need to configure Nginx as a reverse proxy for JFrog. First, install the Nginx webserver with the following command:
+   
+        apt-get install nginx -y
+
+   # After installing Nginx, create a new Nginx virtual host configuration file with the following command:
+   
+        vim /etc/nginx/sites-available/jfrog.conf
+       
+   # Add the following lines:
+   
+        upstream jfrog {
+          server 127.0.0.1:8082 weight=100 max_fails=5 fail_timeout=5;
+        }
+        
+        server {
+          listen          80;
+          server_name     jfrog.a3tech.com;
+        
+          location / {
+                proxy_set_header X-Forwarded-Host $host;
+                proxy_set_header X-Forwarded-Server $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_pass http://jfrog/;
+          }
+        }
+   # Save and close the file then activate the Nginx virtual host with the following command:
+   
+        ln -s /etc/nginx/sites-available/jfrog.conf /etc/nginx/sites-enabled/
+
+   # Next, verify the Nginx for any syntax error with the following command:
+   
+        nginx -t
+    
+   # You should see the following output:
+   
+        nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+        nginx: configuration file /etc/nginx/nginx.conf test is successful
+   
+   # Finally, restart the Nginx service to implement the changes:
+   
+        systemctl restart nginx
+
+ * At this point, Nginx is configured to serve JFrog site. You can now proceed to the next step *
+ 
+# Secure JFrog with Let's Encrypt SSL
+
+   # It is recommended to secure JFrog with Let's Encrypt SSL. First, add the Certbot repository with the following command:
+   
+        apt-get install software-properties-common -y
+        add-apt-repository ppa:ahasenack/certbot-tlssni01-1875471
+   
+   # Next, update the repository and install the Certbot client with the following command:
+
+        apt-get update -y
+        apt-get install certbot python3-certbot-nginx -y
+
+   # Once the Certbot client is installed, run the following command to download and install Let's Encrypt SSL for your website:
+
+        certbot --nginx -d jfrog.linuxbuz.com
+    
+   # You will be asked to provide your valid email and accept the term of service as shown below:
+
+        Saving debug log to /var/log/letsencrypt/letsencrypt.log
+        Plugins selected: Authenticator nginx, Installer nginx
+        Enter email address (used for urgent renewal and security notices) (Enter 'c' to
+        cancel): hitjethva@gmail.com
+        
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        Please read the Terms of Service at
+        https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf. You must
+        agree in order to register with the ACME server at
+        https://acme-v02.api.letsencrypt.org/directory
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        (A)gree/(C)ancel: A
+        
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        Would you be willing to share your email address with the Electronic Frontier
+        Foundation, a founding partner of the Let's Encrypt project and the non-profit
+        organization that develops Certbot? We'd like to send you email about our work
+        encrypting the web, EFF news, campaigns, and ways to support digital freedom.
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        (Y)es/(N)o: Y
+        Obtaining a new certificate
+        Performing the following challenges:
+        http-01 challenge for jfrog.linuxbuz.com
+        Waiting for verification...
+        Cleaning up challenges
+        Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/jfrog.conf
+     
+   # Next, select whether or not to redirect HTTP traffic to HTTPS:
+        
+        Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        1: No redirect - Make no further changes to the webserver configuration.
+        2: Redirect - Make all requests redirect to secure HTTPS access. Choose this for
+        new sites, or if you're confident your site works on HTTPS. You can undo this
+        change by editing your web server's configuration.
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+   
+   # Type 2 and hit enter to start the process. Once the certificate has been installed, you should see the following output:
+
+        Redirecting all traffic on port 80 to ssl in /etc/nginx/sites-enabled/jfrog.conf
+
+            - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            Congratulations! You have successfully enabled https://jfrog.linuxbuz.com
+            
+            You should test your configuration at:
+            https://www.ssllabs.com/ssltest/analyze.html?d=jfrog.linuxbuz.com
+            - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            
+            IMPORTANT NOTES:
+             - Congratulations! Your certificate and chain have been saved at:
+               /etc/letsencrypt/live/jfrog.linuxbuz.com/fullchain.pem
+               Your key file has been saved at:
+               /etc/letsencrypt/live/jfrog.linuxbuz.com/privkey.pem
+               Your cert will expire on 2020-09-07. To obtain a new or tweaked
+               version of this certificate in the future, simply run certbot again
+               with the "certonly" option. To non-interactively renew *all* of
+               your certificates, run "certbot renew"
+             - Your account credentials have been saved in your Certbot
+               configuration directory at /etc/letsencrypt. You should make a
+               secure backup of this folder now. This configuration directory will
+               also contain certificates and private keys obtained by Certbot so
+               making regular backups of this folder is ideal.
+             - If you like Certbot, please consider supporting our work by:
+            
+               Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+               Donating to EFF:                    https://eff.org/donate-le
+            
+             - We were unable to subscribe you the EFF mailing list because your
+               e-mail address appears to be invalid. You can try again later by
+               visiting https://act.eff.org. 
+   
+ ** Access Artifactory Web UI **
+    
+        Now, open your web browser and type the URL https://jfrog.linuxbuz.com. You will be redirected to the following page:
+
+
+https://www.howtoforge.com/tutorial/ubuntu-jfrog/

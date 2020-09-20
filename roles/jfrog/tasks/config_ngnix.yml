@@ -1,0 +1,25 @@
+---
+- name: Configure Nginx as a Reverse Proxy
+  apt:
+    name: "{{package_name2}}"
+    state: present
+- name: copy Nginx virtual host configuration file
+  copy:
+    src: jfrog.conf
+    dest: "{{destination}}"
+    owner: "{{owner}}"
+    group: "{{group}}"
+    mode: 0757
+- name: create simbolic link
+  file:
+    src: "{{source1}}"
+    dest: "{{destination1}}"
+    state: link
+- name: verify the Nginx for any syntax error. will run only if syntax.log file does not exist
+  shell: "{{command}}"
+    creates: syntax.log
+  register: staus
+- debug:
+    var: status
+  notify: restart nginx
+

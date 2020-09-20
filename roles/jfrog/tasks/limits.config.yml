@@ -1,0 +1,5 @@
+---
+- name:  allocation limit to handle files
+  blockinfile:
+    path: "{{path}}"
+    block: "{{block}}"

@@ -1,0 +1,15 @@
+---
+- name: Java Configuration
+  apt:
+    name: "{{package_name}}"
+    state: present
+  update_cache: yes
+
+- name: java version
+  command: "{{version}}"
+  register: version
+
+- name: print java-version
+  debug:
+    var: version
+
