@@ -1,0 +1,13 @@
+---
+- name: update local repo
+  apt:
+    update_cache: yes
+#- name: downloading postgres repo
+#  apt_repository:
+ #   repo: "{{postgres_repo}}"
+ #   state: present
+#- name: adding postgresql.org/media/key
+#  apt_key:
+#    url: "{{Key_url}}"
+#    state: present
+

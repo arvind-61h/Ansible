@@ -1,0 +1,57 @@
+---
+# copy limit.conf file to remote
+src: limits.conf
+path: /etc/security/limits.conf
+
+# java configuration and zip
+pre_packages:
+  - unzip
+  - openjdk-11-jdk
+  - openjdk-11-jre
+notify1: java version
+cmd: java -version
+register_var: version
+
+
+# postgres configuration
+postgres_repo: "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main"
+Key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
+postgres_packages:
+  - postgresql
+  - postgresql-contrib
+postgresql_python_library: psycopg2-binary
+
+# manage postgres service
+notify_1: start and enable postgres
+service_1: postgresql
+postgres_user: postgres
+postgres_password: $6$QjoyuYjz1Nt8J$yci4PkwNX7MX1l.BNSvnoz3tfAuFPdjp9uhMt5wnXs5mINPopNJfnibgAOmj5ATasx4URXg32RsPZ5Mxen7wi0
+db_user: sonar
+db_user_pass: sonar
+db2: sonarqube
+
+# sonarqube configuration
+sonar_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.1.zip"
+des: /home/sonar/sonarqube-7.9.1.zip
+des1: /home/sonar/
+des2: /home/sonar/sonarqube-7.9.1/
+group_name: sonar
+sonarqube_user: sonar
+sonarqube_password: $6$KILQQ9Xt/F6cxXs$gtkLO4xaBErPgP8KZh9MZXgpzD9QcwATTl/zwiQlzXdBOSbHd8UbZWnLTw6PjiEHTq60fEpxgOHz79ZFF4RzI1
+comment: user to run SonarQube
+path1: /home/sonar/sonarqube-7.9.1/conf/sonar.properties
+#find1:
+#  - "#sonar.jdbc.username=, #sonar.jdbc.password="
+block: |
+  sonar.jdbc.username=sonar
+  sonar.jdbc.password=sonar
+
+path2: /home/sonar/sonarqube-7.9.1/bin/linux-x86-64/sonar.sh
+find2: "^RUN_AS_USER="
+insert: "^#RUN_AS_USER="
+replace2: RUN_AS_USER=sonar
+script: ./sonar.sh start >> sonarlog.txt
+dir: /home/sonar/sonarqube-7.9.1/bin/linux-x86-64/
+
+
+

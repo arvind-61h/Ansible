@@ -1,0 +1,18 @@
+---
+- name: download binaries.sonarsource.com and uzip
+  get_url:
+    url: "{{sonar_url}}"
+    dest: "{{des}}"
+- name: unarchive the sonarqube-7.9.1.zip
+  unarchive:
+    src: "{{des}}"
+    dest: "{{des1}}"
+    remote_src: yes
+- name: Change file ownership, group and permissions
+  file:
+    path: "{{des2}}"
+    owner: "{{sonarqube_user}}"
+    group: "{{group_name}}"
+    mode: 0757
+    recurse: yes
+    state: directory

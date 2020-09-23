@@ -1,0 +1,16 @@
+---
+- name: adding sonar.service file to systemd
+  copy:
+    src: sonar.service
+    dest:  /etc/systemd/system/sonar.service
+    owner: sonar
+    group: sonar
+- name: start and enable sonar service
+  service:
+    name: sonar
+    state: started
+    enabled: yes
+  register: output
+- name: sonrqube status
+  debug:
+    var: output

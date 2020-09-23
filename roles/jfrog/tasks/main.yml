@@ -1,0 +1,9 @@
+---
+# tasks file for jfrog
+- name: JfrogArtifactory configaration
+  include: "{{item}}"
+  with_items:
+    - Java_Installation.yml
+    - limits.config.yml
+    - download_Artifactory.yml
+    - config_ngnix.yml

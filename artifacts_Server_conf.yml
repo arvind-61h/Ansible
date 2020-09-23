@@ -1,0 +1,6 @@
+---
+- name:
+  hosts: arti
+  become: yes
+  roles:
+    - jfrog
