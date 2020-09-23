@@ -5,5 +5,6 @@
   tasks:
     - name: downloading  and deploying webapp on testing server
       get_url:
-        url: http://34.123.167.65:8082/artifactory/libs-snapshot/com/wakaleo/gameoflife/gameoflife-web/1.0-SNAPSHOT/gameoflife-web-1.0-20200922.113913-1.war
+        url: 'http://35.238.23.229:8082/artifactory/libs-snapshot/com/wakaleo/gameoflife/gameoflife-web/1.0-SNAPSHOT/gameoflife-web-1.0-20200922.113913-1.war'
         dest: /var/lib/tomcat8/webapps
+        checksum: d39d9e22376e5a947ea5a47e513d44769d56a4d063ac27ba4d764351550d1d48
