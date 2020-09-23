@@ -20,7 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02d6c306-ad51-46e3-b95e-b8672bffcb6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/roles/jenkmvn/tasks/jenkins.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/jenkmvn/tasks/jenkins.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/jenkmvn/handlers/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/jenkmvn/handlers/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/.idea/sonarqube.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/defaults/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/files/sonar.service" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/handlers/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/meta/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tasks/java_config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tasks/limits_conf.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tasks/loginTocreatedb.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tasks/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tasks/postgress.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tasks/sonar_conf.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tasks/sonarqube.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tasks/startpsql.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tasks/startsonarqube_service.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tests/inventory" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/tests/test.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/sonarqube/vars/main.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +94,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="457" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599645805653">
+    <state x="457" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600846986103">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="457" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1599645805653" />
+    <state x="457" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1600846986103" />
     <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1599550597762">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
