@@ -4,7 +4,7 @@
   password: "{{psswd}}"
 - block:
     - name: creating data base
-      community.general.postgresql_db:
+      postgresql_db:
         name: "{{db}}"
         state: present
     - name: adding new db user
