@@ -2,7 +2,7 @@
 - name: Change the password for the default PostgreSQL user.
   user: "{{user}}"
   update_password: always
-  password: {{psswd}}
+  password: "{{psswd}}"
 - block:
     - name: creating data base
       community.general.postgresql_db:
