@@ -1,7 +1,7 @@
 ---
 # tasks file for
 - name: configuration of SonarQube
-  include: "{{item}}"
+  include: "{{ item }}"
   with_items:
     - limits_conf_and_packages.yml
     - Setup_PostgreSQL_Database

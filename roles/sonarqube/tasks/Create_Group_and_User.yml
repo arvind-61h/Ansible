@@ -1,21 +1,21 @@
 ---
 - name: creating {name} group
   group:
-    name: "{{g1}}"
+    name: "{{ g1 }}"
     state: present
 - name: creating {name} user
   user:
-    name: "{{db_user}}"
-    group: "{{g1}}"
+    name: "{{ db_user }}"
+    group: "{{ g1 }}"
     create_home: yes
     update_password: always
-    password: "{{passwd1}}"
+    password: "{{ passwd1 }}"
     state: present
 - name: Recursively change ownership of a directory
   file:
-    path: "{{path2}}"
+    path: "{{ path2 }}"
     state: directory
     recurse: yes
-    owner: "{{db_user}}"
-    group: "{{g1}}"
+    owner: "{{ db_user }}"
+    group: "{{ g1 }}"
     mode: '0777'

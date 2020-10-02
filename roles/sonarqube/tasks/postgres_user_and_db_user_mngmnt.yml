@@ -1,21 +1,21 @@
 ---
 - name: Change the password for the default PostgreSQL user.
-  user: "{{user}}"
-  password: "{{psswd}}"
+  user: "{{ user }}"
+  password: "{{ psswd }}"
 - block:
     - name: creating data base
       postgresql_db:
-        name: "{{db}}"
+        name: "{{ db }}"
         state: present
     - name: adding new db user
       postgresql_user:
-        name: "{{db_user}}"
-        password: "{{passwd1}}"
+        name: "{{ db_user }}"
+        password: "{{ passwd1 }}"
     - name: provide prvilleges to {name}
       postgresql_privs:
-        db: "{{db}}"
+        db: "{{ db }}"
         privs: ALL
         type: database
-        role: "{{db_user}}"
+        role: "{{ db_user }}"
   become: yes
   become_user: postgres
