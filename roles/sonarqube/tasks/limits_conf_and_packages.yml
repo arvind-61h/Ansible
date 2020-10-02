@@ -1,6 +1,6 @@
 ---
 - name: Increase the vm.max_map_count kernal ,file discriptor and ulimit permanently
-  blocklinefile:
+  blockinfile:
     path: "{{path}}"
     block: "{{block}}"
 
