@@ -1,0 +1,30 @@
+---
+- name: Adding the PostgreSQL Repo
+  apt_repository:
+    repo: "{{repo}}"
+    state: present
+
+- name: adding key
+  apt_key:
+    url: "{{key_url}}"
+    state: present
+
+- name: installing  PostgreSQL packages
+  package: "{{packages}}"
+  state: present
+
+- name: version of postgres
+  command: "{{cmd1}}"
+  register: version
+
+- name: print psql version
+  debug:
+    var: version
+
+- name: Start PostgreSQL Database server
+    systemd:
+      name: "{{service}}"
+      state: started
+      enabled: yes
+
+

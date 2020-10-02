@@ -1,0 +1,16 @@
+---
+- name: download sonarqube
+  get_url:
+    url: "{{sonar_url}}"
+    dest: /opt/
+    state: present
+- name: unzip sonarube
+  unarchive:
+    src: "{{src}}"
+    dest: "{{des}}"
+    remote_src: yes
+- name: rename file
+  command: "{{cmd2}}"
+  args:
+    creates: name.log
+

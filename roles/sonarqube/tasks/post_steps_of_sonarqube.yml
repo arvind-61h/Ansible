@@ -1,0 +1,13 @@
+---
+- block:
+    - name: modifiying sonar.properties
+      blockinfile:
+        path: "{{path3}}"
+        block: "{{block1}}"
+    - name: Edit the sonar script file and set RUN_AS_USER
+      replace:
+        path: "{{path4}}"
+        regexp: "{{find}}"
+        replace: "{{replace}}"
+  become: yes
+  become_user: sonar

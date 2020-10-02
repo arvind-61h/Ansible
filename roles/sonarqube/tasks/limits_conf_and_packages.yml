@@ -1,0 +1,17 @@
+---
+- name: Increase the vm.max_map_count kernal ,file discriptor and ulimit permanently
+  blocklinefile:
+    path: "{{path}}"
+    block: "{{block}}"
+
+- name: installing java, unzip
+  package:
+    name: "{{pkg}}"
+    state: present
+    update_cache: yes
+- name: check version
+  command: "{{cmd}}"
+  register: version
+- name: print java version
+  debug:
+    var: version

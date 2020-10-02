@@ -1,0 +1,51 @@
+pipeline{
+    agent {label 'master'}
+    stages{
+        stage('Unit-Testing'){
+            steps{
+                sh 'mvn test'
+            }
+        }
+        stage('Publishing-Junit-Test'){
+            steps{
+                  step([$class: 'JUnitResultArchiver', testResults: 'gameoflife-core/target/surefire-reports/*.xml'])
+            }
+        }
+        stage('Build'){
+            steps{
+                sh 'mvn package install'
+            }
+        }
+        stage('Code-Analysis'){
+            steps{
+                withSonarQube('MysonarQube'){
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
+    }
+    post
+    {
+        success
+        {
+            steps
+            {
+                 rtUpload(
+                    serverId: 'Artifactory-1',
+                    spec:'''{
+                          "files":
+                          [
+                            {
+                              "pattern": "/*.jar",
+                              "target": "libs-snapshot-local/"
+                            }
+                          ]
+                    }''',
+                 )
+
+
+            }
+
+        }
+    }
+}
