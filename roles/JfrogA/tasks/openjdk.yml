@@ -1,0 +1,7 @@
+---
+- name: installing unzip and openjdk
+  apt:
+    name: "{{pre_packages}}"
+    state: present
+  #update_cache: yes
+  notify: "{{notify1}}"

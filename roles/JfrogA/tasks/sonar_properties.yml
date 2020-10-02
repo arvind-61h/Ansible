@@ -1,0 +1,35 @@
+---
+
+ #   - name: adding user to sonar-proprties
+ #     replace:
+ #       dest: "{{path}}"
+ #       regexp: "{{find}}"
+ #       replace: "{{replace}}"
+ #     with_items:
+ #       - {path: "{{path1}}", find: "{{find1}}", replace: "{{replace1}}"}
+ #       - {path: "{{path2}}", find: "{{find2}}", replace: "{{replace2}}"}
+- block:
+    - name: inserting sonar user and password for sonarqube
+      blockinfile:
+        path: "{{path1}}"
+        block: "{{block}}"
+
+    - name: updating RUN user for sonar
+      lineinfile:
+        path: "{{path2}}"
+        regexp: "{{find2}}"
+        insertafter: "{{insert}}"
+        line: "{{replace2}}"
+
+#    - name: switch user to sonar and run sonar.sh
+#      shell: "{{script}}"
+#      args:
+#        chdir: "{{dir}}"
+#        creates: sonarlog.txt
+#      register: output
+#    - name: status of sonar service
+#      debug:
+#        var: output
+  become: yes
+  become_user: "{{sonarqube_user}}"
+

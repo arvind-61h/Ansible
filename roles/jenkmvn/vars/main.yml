@@ -1,0 +1,12 @@
+---
+# configure java and maven
+
+pkg1: default-jdk
+pkg2: maven
+java_version: java -version
+maven_version: mvn -version
+
+# jenkins configuration
+apt_key: 'https://pkg.jenkins.io/debian-stable/jenkins.io.key'
+jenkins_repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
+pkg3: "jenkins"

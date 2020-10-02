@@ -1,0 +1,28 @@
+---
+- name: ensure the password for the {{postgres_user}} user is changed
+  user:
+    name: "{{postgres_user}}"
+    password: "{{ postgres_password }}"
+- block:
+  - name: creating user for database
+    postgresql_user:
+      name: "{{db_user}}"
+      password: "{{db_user_pass}}"
+      state: present
+
+  - name: creating db
+    postgresql_db:
+      name: "{{db2}}"
+      owner: "{{db_user}}"
+
+  - name: grant priv to dbuser
+    postgresql_privs:
+      database: "{{db2}}"
+      privs: ALL
+      type: database
+      role: "{{db_user}}"
+  become: true
+  become_user: postgres
+
+
+...

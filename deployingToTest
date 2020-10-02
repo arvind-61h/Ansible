@@ -1,0 +1,14 @@
+pipeline
+{
+    agent {label 'ansible'}
+    stages
+    {
+        stage('Deploying-artifacts')
+        {
+            steps
+            {
+                sh label: '', script: 'ansible-playbook deploywebapp.yml -b'
+            }
+        }
+    }
+}

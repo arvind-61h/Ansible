@@ -1,0 +1,7 @@
+---
+# tasks file for jenkmvn
+- name: installing java, maven, jenkins
+  include: "{{item}}"
+  with_items:
+    - Java_maven.yml
+    - jenkins.yml

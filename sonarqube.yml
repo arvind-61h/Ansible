@@ -1,0 +1,7 @@
+---
+ - name: configuring sonarqube-server
+   hosts: sonar
+   become: yes
+   roles:
+      - sonarqube
+...
