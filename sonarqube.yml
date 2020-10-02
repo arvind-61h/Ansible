@@ -1,4 +1,5 @@
 ---
+# configure sonar
  - name: configuring sonarqube-server
    hosts: sonar
    become: yes
