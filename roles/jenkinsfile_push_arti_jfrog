@@ -1,0 +1,20 @@
+pipeline{
+    agent {label 'arti'}
+    stages{
+        stage('uploading-ArtifactsTo-JfrogServer'){
+            steps
+            {
+                def uploadSpec = """{
+                  "files":
+                  [
+                    {
+                      "pattern": "bazinga/*froggy*.zip",
+                      "target": "bazinga-repo/froggy-files/"
+                    }
+                  ]
+                }"""
+                server.upload(uploadSpec)
+            }
+        }
+    }
+}
