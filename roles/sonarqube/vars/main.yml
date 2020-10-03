@@ -10,8 +10,8 @@ pkg:
 cmd: java -version
 
 # Install and Setup PostgreSQL Database
-url: deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main
-key_url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+url: "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main"
+key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
 packages:
   - postgresql
   - postgresql-contrib
