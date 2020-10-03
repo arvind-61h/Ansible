@@ -15,8 +15,8 @@ key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
 packages:
   - postgresql
   - postgresql-contrib
-  - python-pip3
-pip_package: python3-psycopg2
+  - python3-pip
+pip_package: python-psycopg2
 cmd1: postgres --version
 service: postgresql
 user: postgres
