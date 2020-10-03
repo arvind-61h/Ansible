@@ -2,15 +2,15 @@
 - name: apt-get update
   apt:
     update_cache: yes
-- name: Adding the PostgreSQL Repo
-  apt_repository:
-    repo: "{{ url }}"
-    state: present
-
-- name: adding key
-  apt_key:
-    url: "{{ key_url }}"
-    state: present
+#- name: Adding the PostgreSQL Repo
+#  apt_repository:
+#    repo: "{{ url }}"
+#    state: present
+#
+#- name: adding key
+#  apt_key:
+#    url: "{{ key_url }}"
+#    state: present
 
 - name: installing  PostgreSQL packages
   package:
