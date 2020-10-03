@@ -1,20 +1,24 @@
 ---
 - name: Change the password for the default PostgreSQL user.
-  user: "{{ user }}"
-  update_password: always
-  password: "{{ pass }}"
+  user:
+   name: "{{ user }}"
+   update_password: always
+   password: "{{ pass }}"
   state: present
-- name: creating data base
-  postgresql_db:
-    name: "{{ db }}"
-    state: present
-- name: adding new db user
-  postgresql_user:
-    name: "{{ db_user }}"
-    password: "{{ pass1 }}"
-- name: provide prvilleges to {db}
-  postgresql_privs:
-    db: "{{ db }}"
-    privs: ALL
-    type: database
-    role: "{{ db_user }}"
+- block:
+    - name: creating data base
+      postgresql_db:
+        name: "{{ db }}"
+        state: present
+    - name: adding new db user
+      postgresql_user:
+        name: "{{ db_user }}"
+        password: "{{ pass1 }}"
+    - name: provide prvilleges to {db}
+      postgresql_privs:
+        db: "{{ db }}"
+        privs: ALL
+        type: database
+        role: "{{ db_user }}"
+  become: yes
+  become_user: postgres
