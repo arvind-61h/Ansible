@@ -1,9 +1,9 @@
 ---
-- name: creating {name} group
+- name: creating group
   group:
     name: "{{ g1 }}"
     state: present
-- name: creating {name} user
+- name: creating user
   user:
     name: "{{ db_user }}"
     group: "{{ g1 }}"
