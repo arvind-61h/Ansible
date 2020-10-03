@@ -1,8 +1,8 @@
 ---
 - name: Change the password for the default PostgreSQL user.
   user: "{{ user }}"
-  update_password: always
-  password: "{{ psswd|password_hash('sha512') }}"
+  update_password: on_create
+  password: "{{ pass | password_hash('sha512') }}"
 - name: creating data base
   postgresql_db:
     name: "{{ db }}"
@@ -10,7 +10,7 @@
 - name: adding new db user
   postgresql_user:
     name: "{{ db_user }}"
-    password: "{{ passwd1 }}"
+    password: "{{ pass1 }}"
 - name: provide prvilleges to {name}
   postgresql_privs:
     db: "{{ db }}"
