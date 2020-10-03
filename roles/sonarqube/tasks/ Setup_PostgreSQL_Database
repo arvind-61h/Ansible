@@ -1,13 +1,16 @@
 ---
 - name: Adding the PostgreSQL Repo
   apt_repository:
-    repo: "{{ repo }}"
+    repo: "{{ url }}"
     state: present
 
 - name: adding key
   apt_key:
     url: "{{ key_url }}"
     state: present
+- name: update repo
+  apt:
+   update_cache: yes
 
 - name: installing  PostgreSQL packages
   package: "{{ packages }}"
