@@ -1,12 +1,14 @@
 ---
-# tasks file for
-- name: configuration of SonarQube
-  include: "{{ item }}"
-  with_items:
-    - limits_conf_and_packages.yml
-    - Setup_PostgreSQL_Database.yml
-    - postgres_user_and_db_user_mngmnt.yml
-    - Download_and_Install_SonarQube.yml
-    - Create_Group_and_User.yml
-    - post_steps_of_sonarqube.yml
-    - Configure_Systemd_service.yml
+# tasks file for sonarqube
+- name: configuring sonarqube server
+  include: "{{item}}"
+  loop:
+    - limits_conf.yml
+    - java_config.yml
+    - postgress.yml
+    - startpsql.yml
+    - loginTocreatedb.yml
+    - sonarqube.yml
+    - sonar_conf.yml
+    - startsonarqube_service.yml
+...

@@ -4,17 +4,16 @@
    name: "{{ user }}"
    password: "{{ pass }}"
 - block:
-    - name: creating data base
-      postgresql_db:
-        name: "{{ db }}"
-        state: present
-
     - name: adding new db user
       postgresql_user:
           name: "{{ db_user }}"
           password: "{{ pass1 }}"
           state: present
-
+    - name: creating data base
+      postgresql_db:
+        name: "{{ db }}"
+        owner: sonar
+        state: present
     - name: provide prvilleges to {db}
       postgresql_privs:
         db: "{{ db }}"

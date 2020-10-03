@@ -1,0 +1,44 @@
+---
+# presteps
+path: /etc/security/limits.conf
+block: |
+  sonarqube   -   nofile   65536
+  sonarqube   -   nproc    4096
+pkg:
+  - openjdk-11-jdk
+  - unzip
+cmd: java -version
+
+# Install and Setup PostgreSQL Database
+url: "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main"
+key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
+packages:
+  - postgresql
+  - postgresql-contrib
+  - python3-pip
+pip_package: psycopg2-binary
+cmd1: psql -V
+service: postgresql
+user: postgres
+pass: $6$SEKBxHQqwDNdp$Dpvvt3RPUTpht.WI2.PADlEihfu6UvSWOLU9B1Dq8hRY5afLf4dHWujli9dcHCTSWBLXo2h..wYPXcbff7MqY.
+
+# DB configuartion
+db: sonarqube
+db_user: sonar
+pass1: $6$OVJJ1v6eyH4h$P3KQ4aM/flBV4tvFpg9wf7fD7ZBbjxHz7M0HeuaxBnd.TxvezI94PfPFutENNO0VNgj2gSRBcjADYjXz5WHs01
+
+#Sonarqube configuration
+sonar_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.4.2.36762.zip"
+src: /opt/sonarqube-8.4.2.36762.zip
+des: /opt/
+cmd2: mv /opt/sonarqube-8.4.2.36762 sonarqube/
+g1: sonar
+path2: /opt/sonarqube/
+#post step of sonar
+path3: /opt/sonarqube/conf/sonar.properties
+block1: |
+  sonar.jdbc.username=sonar
+  sonar.jdbc.password=sonar
+path4: /opt/sonarqube/bin/linux-x86-64/sonar.sh
+find: "#RUN_AS_USER="
+replace: RUN_AS_USER=sonar

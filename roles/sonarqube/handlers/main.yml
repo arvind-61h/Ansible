@@ -1,12 +1,8 @@
 ---
 # handlers file for sonarqube
-- name: deamon reload
+- name: start sonar
   systemd:
-   daemon_reload: yes
-   name: sonar
-   state: started
-   enabled: yes
-  register: status
-- name: print status
-  debug:
-    var: status
+    state: started
+    name: sonar
+    enabled: yes
+...
