@@ -5,8 +5,8 @@ After=syslog.target network.target
 [Service]
 Type=forking
 
-ExecStart=/home/jenkins/sonarqube/bin/linux-x86-64/sonar.sh start
-ExecStop=/home/jenkins/sonarqube/bin/linux-x86-64/sonar.sh stop
+ExecStart=/opt/sonarqube-8.4.2.36762/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube-8.4.2.36762/bin/linux-x86-64/sonar.sh stop
 
 User=sonar
 Group=sonar

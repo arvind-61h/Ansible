@@ -9,8 +9,5 @@
     src: "{{ src }}"
     dest: "{{ des }}"
     remote_src: yes
-- name: rename file
-  command: "{{ cmd2 }}"
-  args:
-    creates: name.log
+
 
