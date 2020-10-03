@@ -16,7 +16,9 @@
   package:
     name: "{{ packages }}"
     state: present
-
+- name: installing psycopg2
+  pip3:
+    name: "{{pip_package}}"
 - name: version of postgres
   command: "{{ cmd1 }}"
   register: version
