@@ -3,7 +3,7 @@
   get_url:
     url: "{{ sonar_url }}"
     dest: /opt
-    state: present
+
 - name: unzip sonarube
   unarchive:
     src: "{{ src }}"
