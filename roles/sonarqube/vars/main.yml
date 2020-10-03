@@ -17,7 +17,7 @@ packages:
   - postgresql-contrib
   - python3-pip
 pip_package: psycopg2-binary
-cmd1: postgres --version
+cmd1: psql -V
 service: postgresql
 user: postgres
 pass: $6$SEKBxHQqwDNdp$Dpvvt3RPUTpht.WI2.PADlEihfu6UvSWOLU9B1Dq8hRY5afLf4dHWujli9dcHCTSWBLXo2h..wYPXcbff7MqY.
