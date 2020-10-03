@@ -25,9 +25,7 @@
     var: version
 
 - name: Start PostgreSQL Database server
-    systemd:
-      name: "{{ service }}"
-      state: started
-      enabled: yes
-
-
+  systemd:
+    name: "{{ service }}"
+    state: started
+    enabled: yes
