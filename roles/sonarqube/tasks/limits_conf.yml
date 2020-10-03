@@ -1,7 +1,0 @@
----
-- name: vm.max_map_count kernal ,file discriptor and ulimit permanently
-  blockinfile:
-    path: "{{path}}"
-    block:
-      "{{block}}"
-...
