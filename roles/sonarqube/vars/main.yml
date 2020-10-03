@@ -28,7 +28,7 @@ db_user: sonar
 pass1: $6$OVJJ1v6eyH4h$P3KQ4aM/flBV4tvFpg9wf7fD7ZBbjxHz7M0HeuaxBnd.TxvezI94PfPFutENNO0VNgj2gSRBcjADYjXz5WHs01
 
 #Sonarqube configuration
-sonar_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.4.2.36762.zip"
+sonar_url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.4.2.36762.zip
 src: /opt/sonarqube-8.4.2.36762.zip
 des: /opt/
 cmd2: mv /opt/sonarqube-8.4.2.36762 sonarqube/

@@ -2,7 +2,7 @@
 - name: download sonarqube
   get_url:
     url: "{{ sonar_url }}"
-    dest: /opt/
+    dest: /opt
     state: present
 - name: unzip sonarube
   unarchive:
