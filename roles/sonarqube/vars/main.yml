@@ -18,12 +18,12 @@ packages:
 cmd1: postgres --version
 service: postgresql
 user: postgres
-pass: 3BB2DC46D0EC0412EBD5007ECBAF22C5B778409BA4F05DBA00E00A9FFF3579036E9608117E9E88B1D563B09CCFCE36973456F1FD389DB4DA65F3655F4411C241
+pass: $6$SEKBxHQqwDNdp$Dpvvt3RPUTpht.WI2.PADlEihfu6UvSWOLU9B1Dq8hRY5afLf4dHWujli9dcHCTSWBLXo2h..wYPXcbff7MqY.
 
 # DB configuartion
 db: sonarqube
 db_user: sonar
-pass1: D85E336D61F5344395C42126FAC239BC
+pass1: $6$OVJJ1v6eyH4h$P3KQ4aM/flBV4tvFpg9wf7fD7ZBbjxHz7M0HeuaxBnd.TxvezI94PfPFutENNO0VNgj2gSRBcjADYjXz5WHs01
 
 #Sonarqube configuration
 sonar_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.4.2.36762.zip"
