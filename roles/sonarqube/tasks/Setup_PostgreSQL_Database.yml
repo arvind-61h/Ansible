@@ -8,9 +8,6 @@
   apt_key:
     url: "{{ key_url }}"
     state: present
-- name: update repo
-  apt:
-   update_cache: yes
 
 - name: installing  PostgreSQL packages
   package:
