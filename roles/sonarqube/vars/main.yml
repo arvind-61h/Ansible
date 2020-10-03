@@ -34,12 +34,12 @@ des: /opt/
 cmd2: mv /opt/sonarqube-8.4.2.36762 sonarqube/
 g1: sonar
 passwd1: $6$xlzzXrYxT$Ri6u9jfEOf07/sfTbxnVzntPpsY0bytHfyOGqFdr8Pjz3vB9zXD4JXHGf/d9/q8JXvKYEG6iVq3.My5G.0mOd.
-path2: /opt/sonarqube/
+path2: /home/jenkins/sonarqube
 #post step of sonar
-path3: /opt/sonarqube/conf/sonar.properties
+path3: /home/jenkins/sonarqube/conf/sonar.properties
 block1: |
   sonar.jdbc.username=sonar
   sonar.jdbc.password=sonar
-path4: /opt/sonarqube/bin/linux-x86-64/sonar.sh
+path4: /home/jenkins/sonarqube/bin/linux-x86-64/sonar.sh
 find: "#RUN_AS_USER="
 replace: RUN_AS_USER=sonar
