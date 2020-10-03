@@ -6,7 +6,7 @@ block: sonarqube - nofile - 65536
 pkg1: unzip
 pkg2: openjdk-11-jdk
 cmd: java -version
-version=check
+version: check
 
 
 repo: "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main"
