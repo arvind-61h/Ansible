@@ -7,5 +7,14 @@
     group: jenkins
     mode: '0677'
   notify: deamon reload
-
+- name: deamon reload
+  systemd:
+   daemon_reload: yes
+   name: sonar
+   state: started
+   enabled: yes
+  register: status
+- name: print status
+  debug:
+    var: status
 
