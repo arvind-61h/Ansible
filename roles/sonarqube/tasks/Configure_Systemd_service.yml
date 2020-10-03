@@ -2,7 +2,7 @@
 - name: copy sonar.service
   copy:
     src: sonar.service
-    dest: etc/systemd/system/
+    dest: etc/systemd/system
     owner: jenkins
     group: jenkins
     mode: '0677'
