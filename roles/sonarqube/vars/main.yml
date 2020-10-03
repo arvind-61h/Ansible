@@ -16,7 +16,7 @@ packages:
   - postgresql
   - postgresql-contrib
   - python3-pip
-pip_package: psycopg2
+pip_package: python-psycopg2
 cmd1: postgres --version
 service: postgresql
 user: postgres

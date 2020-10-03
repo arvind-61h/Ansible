@@ -19,6 +19,7 @@
 - name: installing psycopg2
   pip:
     name: "{{pip_package}}"
+    state: present
 - name: version of postgres
   command: "{{ cmd1 }}"
   register: version
