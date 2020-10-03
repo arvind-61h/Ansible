@@ -13,8 +13,9 @@
    update_cache: yes
 
 - name: installing  PostgreSQL packages
-  package: "{{ packages }}"
-  state: present
+  package:
+    name: "{{ packages }}"
+    state: present
 
 - name: version of postgres
   command: "{{ cmd1 }}"
