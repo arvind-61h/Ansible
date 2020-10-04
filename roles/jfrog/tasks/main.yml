@@ -3,6 +3,5 @@
 - name: JfrogArtifactory configaration
   include: "{{item}}"
   with_items:
-    - Java_Installation.yml
     - limits.config.yml
     - download_Artifactory.yml
