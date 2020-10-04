@@ -11,16 +11,13 @@
 - name: starting sonarqube
   shell: "{{item}}"
   args:
-    chdir: /opt/sonarqube-8.4.2.36762/bin/linux-x86-64
+    chdir: /opt/sonarqube-8.4.2.36762/bin/linux-x86-64/
     creates: startlog.txt
   with_items:
+    - ./sonar.sh stop
     - ./sonar.sh start
     - ./sonar.sh status
   register: status
-- name: Populate service facts
-  service_facts:
 - name: print status of sonar
   debug:
-    var:
-    - status
-    - ansible_facts.services
+    var: status
