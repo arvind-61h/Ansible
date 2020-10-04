@@ -15,10 +15,7 @@
 - name: stop sonar
   service:
     name: sonar
-    state: "{{item}}"
-  with_items:
-    - stopped
-    - started
+    state: started
   register: status
 - name: print status
   debug:

@@ -15,8 +15,6 @@
     creates: startlog.txt
   with_items:
     - ./sonar.sh stop
-    - ./sonar.sh start
-    - ./sonar.sh status
   register: status
 - name: print status of sonar
   debug:
