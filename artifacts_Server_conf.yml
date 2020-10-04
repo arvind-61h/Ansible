@@ -1,6 +1,6 @@
 ---
 - name:
-  hosts: arti
+  hosts: localhost
   become: yes
   roles:
     - jfrog
