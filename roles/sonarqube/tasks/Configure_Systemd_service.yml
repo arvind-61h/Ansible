@@ -10,8 +10,8 @@
 - name: deamon reload
   systemd:
     name: sonar
-   daemon_reload: yes
-   enabled: yes
+    daemon_reload: yes
+    enabled: yes
 - name: stop sonar
   service:
     name: sonar
