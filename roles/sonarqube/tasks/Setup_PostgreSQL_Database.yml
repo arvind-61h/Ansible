@@ -33,3 +33,7 @@
     name: "{{ service }}"
     state: started
     enabled: yes
+  register: status
+- name: postgres status
+  debug:
+    var: status

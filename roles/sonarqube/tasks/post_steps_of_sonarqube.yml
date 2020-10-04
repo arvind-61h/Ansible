@@ -9,7 +9,14 @@
     regexp: "{{ find }}"
     replace: "{{ replace }}"
 - name: starting sonarqube
-  shell: sonar.sh start
+  shell: "{{item}}"
   args:
     chdir: /opt/sonarqube-8.4.2.36762/bin/linux-x86-64
     creates: startlog.txt
+  with_items:
+    - ./sonar.sh start
+    - ./sonar.sh status
+  register: status
+- name: print status of sonar
+  debug:
+    var: status

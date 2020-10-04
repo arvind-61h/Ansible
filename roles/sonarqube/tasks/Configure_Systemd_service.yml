@@ -5,8 +5,8 @@
     dest: etc/systemd/system
     owner: jenkins
     group: jenkins
-    mode: '0677'
-  notify: deamon reload
+    mode: '666'
+
 - name: deamon reload
   systemd:
    daemon_reload: yes
@@ -17,4 +17,3 @@
 - name: print status
   debug:
     var: status
-

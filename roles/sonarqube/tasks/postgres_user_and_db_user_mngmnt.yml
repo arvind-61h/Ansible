@@ -9,17 +9,16 @@
           name: "{{ db_user }}"
           password: "{{ pass1 }}"
           state: present
-    - name: creating data base
+    - name: creating database
       postgresql_db:
         name: "{{ db }}"
         owner: sonar
         state: present
-    - name: provide prvilleges to {db}
+    - name: provide prvilleges
       postgresql_privs:
         db: "{{ db }}"
         privs: ALL
         type: database
         role: "{{ db_user }}"
   become: true
-  become_method: sudo
   become_user: postgres
