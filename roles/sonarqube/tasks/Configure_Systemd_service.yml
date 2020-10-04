@@ -10,9 +10,14 @@
 - name: deamon reload
   systemd:
    daemon_reload: yes
-   name: sonar
-   state: started
    enabled: yes
+- name: stop sonar
+  service:
+    name: sonar
+    state: "{{item}}"
+  with_items:
+    - stopped
+    - started
   register: status
 - name: print status
   debug:
