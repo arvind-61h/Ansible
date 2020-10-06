@@ -1,0 +1,5 @@
+---
+- name: copying Docker file
+  copy:
+    src: "{{ src }}"
+    dest: "{{ destination }}"

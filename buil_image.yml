@@ -1,0 +1,6 @@
+---
+- name: build docker image
+  hosts: docker
+  become: true
+  roles:
+    - build_image

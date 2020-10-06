@@ -1,0 +1,7 @@
+---
+- name: downloading artifacts
+  get_url:
+    url: "{{ arti_url }}"
+    dest: "{{ destiantion }}"
+    user: "{{ binary_repo_username }}"
+    password: "{{ arti_repo_user_passwd }}"
