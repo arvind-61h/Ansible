@@ -9,7 +9,7 @@
   docker_image:
     name: "{{ image_name }}"
     repository: "{{ repo }}"
-    tag: "{{ build_tag }}"
+    tag: "{{ image_tag }}"
     push: yes
 - name: run containers
   docker_container:
