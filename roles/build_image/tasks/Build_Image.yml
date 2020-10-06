@@ -7,7 +7,7 @@
 
 - name: Tag image and push to Repo
   docker_image:
-    name: "{{ image_name }}"
+    name: "{{ image }}"
     repository: "{{ repo }}"
     tag: "{{ image_tag }}"
     push: yes
