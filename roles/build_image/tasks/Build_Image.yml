@@ -17,7 +17,7 @@
 - name: run containers
   docker_container:
     name: "{{ container_name }}"
-    image: "{{ repo }}"
+    image: "{{ image_to_run }}"
     state: started
     ports:
       - "8080:8080"
