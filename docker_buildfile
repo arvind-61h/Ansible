@@ -1,0 +1,11 @@
+pipeline{
+    agent { label 'ansible'}
+    stages{
+        stage('Docker_Image_Build'){
+            steps{
+
+                sh label: '', script: 'ansible-playbook buil_image.yml -b '
+            }
+        }
+    }
+}
