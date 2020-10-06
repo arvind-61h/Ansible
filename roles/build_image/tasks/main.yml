@@ -1,7 +1,7 @@
 ---
 # tasks file for build_image
 - name: building Docker Image
-  itinclude: "{{ item }}"
+  include: "{{ item }}"
   with_items:
     - CopyDockerFile.yml
     - dowload_arti.yml
