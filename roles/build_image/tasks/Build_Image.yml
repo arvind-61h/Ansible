@@ -5,7 +5,7 @@
     name: "{{ image_name }}"
     tag: "{{ build_tag }}"
 - name: login to docker hub
-  community.general.docker_login:
+  docker_login:
     username: 92840
     password: London@123
 - name: Tag image and push to Repo
