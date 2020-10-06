@@ -13,6 +13,6 @@ build_tag: v1
 image: "gameoflife:v1"
 repo: "92840/web1"
 image_tag: 1.0.1
-image_to_run: "92840/web1:1.0.1"
+image_to_run: "92840/web1"
 
 container_name: test1
