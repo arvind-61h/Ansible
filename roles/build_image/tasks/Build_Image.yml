@@ -1,20 +1,22 @@
 ---
-- name: Bulding image
-  docker_image:
-    path: "{{ destination }}"
-    name: "{{ image_name }}"
-    tag: "{{ build_tag }}"
+- block:
+    - name: Bulding image
+      docker_image:
+        path: "{{ destination }}"
+        name: "{{ image_name }}"
+        tag: "{{ build_tag }}"
 
-- name: Tag image and push to Repo
-  docker_image:
-    name: "{{ image }}"
-    repository: "{{ repo }}"
-    tag: "{{ image_tag }}"
-    push: yes
-- name: run containers
-  docker_container:
-    name: "{{ container_name }}"
-    image: "{{ image_name }}"
-    state: started
-    ports:
-      - "8080:8080"
+    - name: Tag image and push to Repo
+      docker_image:
+        name: "{{ image }}"
+        repository: "{{ repo }}"
+        tag: "{{ image_tag }}"
+        push: yes
+    - name: run containers
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ image_name }}"
+        state: started
+        ports:
+          - "8080:8080"
+  become: true
