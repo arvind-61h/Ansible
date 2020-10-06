@@ -14,7 +14,6 @@
     name: "{{package_name1}}"
     state: present
     update_cache: yes
-  notify: start and enable artifactory
 
 - name: start and enable artifactory
   service:
