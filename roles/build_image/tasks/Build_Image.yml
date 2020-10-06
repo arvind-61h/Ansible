@@ -12,7 +12,6 @@
   docker_image:
     name: "{{ image }}"
     repository: "{{ repo }}"
-    tag: "{{ image_tag }}"
     push: yes
 - name: run containers
   docker_container:
