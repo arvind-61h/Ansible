@@ -1,0 +1,12 @@
+- name: stop and remove if { name } container is running
+  docker_container:
+    name: "{{ container_name }}"
+    state: "{{ container_state }}"
+  ignore_errors: yes
+- name: creating { name }containers
+  docker_container:
+    name: "{{ container_name }}"
+    image: "{{ image_to_run }}"
+    state: started
+    ports:
+      - "8080:8080"

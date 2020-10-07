@@ -5,4 +5,5 @@
   with_items:
     - CopyDockerFile.yml
     - dowload_arti.yml
+    - Container_mngmt.yml
     - Build_Image.yml

@@ -2,16 +2,25 @@
 # vars file for build_image
 src: Dockerfile
 destination: /home/jenkins
-arti_url: "http://34.82.150.164:8082/artifactory/libs-snapshot-local/gameoflife.war"
+arti_url: "http://35.227.177.115:8082/artifactory/libs-snapshot-local/gameoflife.war"
 #'http://35.233.158.221/artifactory/libs-snapshot-local/gameoflife.war'
 binary_repo_username: admin
 arti_repo_user_passwd: admin123
 
-# Docker_Image_Build_Conf
+# Docker image managment
+dockerfile_path: /home/jenkins/
 image_name: gameoflife
-build_tag: v1
+image_tag: v1
 image: "gameoflife:v1"
-repo: "92840/game1:1.0.1"
-image_to_run: "92840/game1:1.0.1"
+repo: "92840/game:v1"
+image_to_run: "92840/game:v1"
 
-container_name: test2
+remove_image:
+  - gameoflife
+  - 92840/game
+
+# Container Managment
+container_name: test
+container_state:
+  - stopped
+  - absent
