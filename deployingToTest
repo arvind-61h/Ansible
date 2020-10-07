@@ -3,19 +3,11 @@ pipeline
     agent {label 'ansible'}
     stages
     {
-        stage('SCM-Checkout')
-        {
-            steps
-            {
-                git branch: 'development', url: 'https://github.com/arvind61h/ansible.git'
-            }
-        }
-
         stage('Deploying-artifacts')
         {
             steps
             {
-                sh label: '', script: 'ansible-playbook deploywebapp.yml -b'
+                sh label: '', script: 'Deploying_To_Testing_Server.yml -b'
             }
         }
     }

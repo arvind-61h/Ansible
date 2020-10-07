@@ -1,0 +1,7 @@
+docker_username: "92840"
+docker_login_password: "London@123"
+container_name: test
+image_name: 92840/game
+version: v1
+port:
+  - "8080:8080"

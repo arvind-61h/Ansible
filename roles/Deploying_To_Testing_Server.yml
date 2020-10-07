@@ -1,0 +1,34 @@
+---
+- name: Deploying app on Testing server to Test app
+  hosts: node1
+  become: true
+  vars_files:
+    - Testing_server_vars.yml
+  tasks:
+    - name: login to docker hub
+      docker_login:
+        username: "{{ docker_username }}"
+        password: "{{ docker_login_password }}"
+    - name: stop running container
+      docker_container:
+        name: "{{ container_name }}"
+        state: stopped
+      ignore_errors: yes
+    - name: remove sopped container
+      docker_container:
+        name: "{{ container_name }}"
+        state: absent
+      ignore_errors: yes
+    - name: remove old image
+      docker_image:
+        name: "{{ image_name }}"
+        tag: "{{ version }}"
+        state: absent
+      ignore_errors: yes
+    - name: creating containers
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ image_name }}"
+        tag: "{{ version }}"
+        state: started
+        ports: "{{ port }}"
