@@ -7,7 +7,7 @@ pipeline
         {
             steps
             {
-                sh label: '', script: 'Deploying_To_Testing_Server.yml -b'
+                sh label: '', script: 'ansible-playbook Deploying_To_Testing_Server.yml -b'
             }
         }
     }
