@@ -1,7 +1,7 @@
 ---
 - name: Deploying app on Testing server to Test app
   hosts: node1
-  become: true
+  become: yes
   vars_files:
     - Testing_server_vars.yml
   tasks:
