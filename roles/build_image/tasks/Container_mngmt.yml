@@ -6,9 +6,28 @@
     - { container_name: "{{cn}}", container_state: "{{cs}}" }
     - { container_name: "{{cn1}}", container_state: "{{cs1}}" }
   ignore_errors: yes
+
+- name: login to docker hub
+  docker_login:
+    username: "92840"
+    password: "London@123"
+
+- name: delete old builds
+  docker_image:
+    name: "{{ remove_image }}"
+    tag: "{{ image_tag }}"
+    state: absent
+  ignore_errors: yes
+
+- name: Tag image and push to Repo
+  docker_image:
+    name: "{{ image }}"
+    repository: "{{ repo }}"
+    push: yes
+
 - name: creating { name }containers
   docker_container:
-    name: "{{ container_name }}"
+    name: "{{ cn }}"
     image: "{{ image_to_run }}"
     state: started
     ports:
