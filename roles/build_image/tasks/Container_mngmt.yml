@@ -1,7 +1,10 @@
 - name: stop and remove if { name } container is running
   docker_container:
-    name: "{{ container_name }}"
-    state: "{{ container_state }}"
+    name: "{{ item.container_name}}"
+    state: "{{ item.container_state }}"
+  with_items:
+    - { container_name: "{{cn}}", container_state: "{{cs}}" }
+    - { container_name: "{{cn1}}", container_state: "{{cs1}}" }
   ignore_errors: yes
 - name: creating { name }containers
   docker_container:

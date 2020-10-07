@@ -20,7 +20,7 @@ remove_image:
   - 92840/game
 
 # Container Managment
-container_name: test
-container_state:
-  - stopped
-  - absent
+cn: test
+cs: stopped
+cn1: test
+cs1: absent
