@@ -14,9 +14,12 @@
 
 - name: delete old builds
   docker_image:
-    name: "{{ remove_image }}"
-    tag: "{{ image_tag }}"
+    name: "{{ item.remove_image }}"
+    tag: "{{ item.image_tag }}"
     state: absent
+  with_items:
+    - {remove_image: "{{image1}}", image_tag: "{{tag}}"}
+    - {remove_image: "{{image2}}", image_tag: "{{tag}}"}
   ignore_errors: yes
 
 - name: Bulding image
