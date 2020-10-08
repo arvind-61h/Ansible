@@ -2,6 +2,7 @@
 - name: Deploying app on Testing server to Test app
   hosts: node1
   become: yes
+  become
   vars_files:
     - Testing_server_vars.yml
   tasks:
@@ -29,6 +30,5 @@
       docker_container:
         name: "{{ container_name }}"
         image: "{{ image_name }}"
-        tag: "{{ version }}"
         state: started
         ports: "{{ port }}"
