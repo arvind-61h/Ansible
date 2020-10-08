@@ -2,7 +2,7 @@
 # vars file for build_image
 src: Dockerfile
 destination: /home/jenkins
-arti_url: "http://34.105.23.182:8082/artifactory/libs-snapshot-local/gameoflife.war"
+arti_url: "http://34.83.217.126:8082/artifactory/libs-snapshot-local/gameoflife.war"
 #'http://35.233.158.221/artifactory/libs-snapshot-local/gameoflife.war'
 binary_repo_username: admin
 arti_repo_user_passwd: admin123
