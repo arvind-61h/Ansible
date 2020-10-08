@@ -1,4 +1,8 @@
 ---
+- name: remove old artifacts
+  file:
+    path: "{{ artifacts_path }}"
+    state: absent
 - name: downloading artifacts
   get_url:
     url: "{{ arti_url }}"

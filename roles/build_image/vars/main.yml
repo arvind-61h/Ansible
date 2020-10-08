@@ -1,6 +1,7 @@
 ---
 # vars file for build_image
 src: Dockerfile
+artifacts_path: /home/jenkins/gameoflife.war
 destination: /home/jenkins
 arti_url: "http://34.83.217.126:8081/artifactory/libs-snapshot-local/gameoflife.war"
 #'http://35.233.158.221/artifactory/libs-snapshot-local/gameoflife.war'
