@@ -1,11 +1,34 @@
 pipeline{
-    agent { label 'ansible'}
+    agent none
     stages{
-        stage('Docker_Image_Build'){
-            steps{
+        stage('Deploying Artifacts to Testing Server'){
+            agent { label 'docker'}
+                steps{
 
-                sh label: '', script: 'ansible-playbook buil_image.yml -b '
-            }
+                    rtDownload (
+                        serverId: 'Artifactory1',
+                        spec: '''{
+                              "files": [
+                                {
+                                  "pattern": "libs-snapshot-local/*.war",
+                                  "target": "/home/jenkins"
+                                }
+                              ]
+                        }''',
+
+                        // buildName: 'holyFrog',
+                        // buildNumber: '42'
+                    )
+
+                }
+        }
+
+        stage('Docker_Image_Build'){
+            agent { label 'ansible'}
+                steps{
+
+                    sh label: '', script: 'ansible-playbook buil_image.yml -b '
+                }
         }
     }
 }

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ansible.iml" filepath="$PROJECT_DIR$/.idea/ansible.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../opensource-project/my-game/.idea/my-game.iml" filepath="$PROJECT_DIR$/../opensource-project/my-game/.idea/my-game.iml" />
     </modules>
   </component>
 </project>
