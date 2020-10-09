@@ -4,5 +4,4 @@
   include: "{{ item }}"
   with_items:
     - CopyDockerFile.yml
-    - dowload_arti.yml
     - Container_mngmt.yml
