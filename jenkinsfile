@@ -23,29 +23,22 @@ pipeline{
                 }
             }
         }
-    }
-    post
-    {
-        success
-        {
-            steps
-            {
-                 rtUpload(
-                    serverId: 'Artifactory-1',
-                    spec:'''{
-                          "files":
-                          [
+        stage ('uploading Artifacts to binary server') {
+            steps{
+               rtUpload (
+                    serverId: 'Artifactory1',
+                    spec: '''{
+                          "files": [
                             {
-                              "pattern": "/*.jar",
-                              "target": "libs-snapshot-local/"
+                              "pattern": "*.war",
+                              "target": "libs-snapshot-local"
                             }
-                          ]
+                         ]
                     }''',
-                 )
-
-
+                    buildName: 'BUILD_NUMBER',
+                    buildNumber: 'BUILD_ID'
+               )
             }
-
         }
     }
 }
