@@ -1,6 +1,11 @@
 pipeline{
     agent {label 'master'}
     stages{
+        stage("SCM-Checkout"){
+            steps{
+                git branch: 'feature-1', url: 'https://github.com/arvind61h/my-game.git'
+            }
+        }
         stage('Unit-Testing'){
             steps{
                 sh 'mvn test'
