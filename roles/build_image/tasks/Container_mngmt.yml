@@ -7,10 +7,10 @@
 #    - { container_name: "{{cn1}}", container_state: "{{cs1}}" }
 #  ignore_errors: yes
 
-- name: login to docker hub
-  docker_login:
-    username: "92840"
-    password: "London@123"
+#- name: login to docker hub
+#  docker_login:
+#    username: "92840"
+#    password: "London@123"
 
 - name: delete old builds
   docker_image:
